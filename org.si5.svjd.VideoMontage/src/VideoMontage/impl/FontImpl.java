@@ -3,6 +3,7 @@
 package VideoMontage.impl;
 
 import VideoMontage.Font;
+import VideoMontage.FontStyle;
 import VideoMontage.VideoMontagePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,33 +21,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link VideoMontage.impl.FontImpl#getName <em>Name</em>}</li>
  *   <li>{@link VideoMontage.impl.FontImpl#getLength <em>Length</em>}</li>
+ *   <li>{@link VideoMontage.impl.FontImpl#getFontStyle <em>Font Style</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FontImpl extends MinimalEObjectImpl.Container implements Font {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getLength() <em>Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -68,6 +49,26 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 	protected String length = LENGTH_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getFontStyle() <em>Font Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFontStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final FontStyle FONT_STYLE_EDEFAULT = FontStyle.COMIC_SANS_MS;
+
+	/**
+	 * The cached value of the '{@link #getFontStyle() <em>Font Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFontStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected FontStyle fontStyle = FONT_STYLE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -84,27 +85,6 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 	@Override
 	protected EClass eStaticClass() {
 		return VideoMontagePackage.Literals.FONT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.FONT__NAME, oldName, name));
 	}
 
 	/**
@@ -133,13 +113,34 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FontStyle getFontStyle() {
+		return fontStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFontStyle(FontStyle newFontStyle) {
+		FontStyle oldFontStyle = fontStyle;
+		fontStyle = newFontStyle == null ? FONT_STYLE_EDEFAULT : newFontStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.FONT__FONT_STYLE, oldFontStyle, fontStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case VideoMontagePackage.FONT__NAME:
-				return getName();
 			case VideoMontagePackage.FONT__LENGTH:
 				return getLength();
+			case VideoMontagePackage.FONT__FONT_STYLE:
+				return getFontStyle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,11 +153,11 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case VideoMontagePackage.FONT__NAME:
-				setName((String)newValue);
-				return;
 			case VideoMontagePackage.FONT__LENGTH:
 				setLength((String)newValue);
+				return;
+			case VideoMontagePackage.FONT__FONT_STYLE:
+				setFontStyle((FontStyle)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -170,11 +171,11 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case VideoMontagePackage.FONT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case VideoMontagePackage.FONT__LENGTH:
 				setLength(LENGTH_EDEFAULT);
+				return;
+			case VideoMontagePackage.FONT__FONT_STYLE:
+				setFontStyle(FONT_STYLE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -188,10 +189,10 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case VideoMontagePackage.FONT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case VideoMontagePackage.FONT__LENGTH:
 				return LENGTH_EDEFAULT == null ? length != null : !LENGTH_EDEFAULT.equals(length);
+			case VideoMontagePackage.FONT__FONT_STYLE:
+				return fontStyle != FONT_STYLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -206,10 +207,10 @@ public class FontImpl extends MinimalEObjectImpl.Container implements Font {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", length: ");
+		result.append(" (length: ");
 		result.append(length);
+		result.append(", fontStyle: ");
+		result.append(fontStyle);
 		result.append(')');
 		return result.toString();
 	}

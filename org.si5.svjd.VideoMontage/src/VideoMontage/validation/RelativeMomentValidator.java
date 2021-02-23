@@ -4,7 +4,9 @@
  */
 package VideoMontage.validation;
 
+import VideoMontage.Element;
 import VideoMontage.Moment;
+import VideoMontage.OperationMoment;
 
 /**
  * A sample validator interface for {@link VideoMontage.RelativeMoment}.
@@ -17,4 +19,8 @@ public interface RelativeMomentValidator {
 
 	boolean validateMoment(Moment value);
 	boolean validateValue(double value);
+
+	boolean validateElement(Element value);
+
+	boolean validateOperationMoment(OperationMoment value);
 }

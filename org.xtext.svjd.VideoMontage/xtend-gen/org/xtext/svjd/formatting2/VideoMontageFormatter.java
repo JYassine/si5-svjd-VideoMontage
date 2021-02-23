@@ -5,7 +5,6 @@ package org.xtext.svjd.formatting2;
 
 import VideoMontage.AudioElement;
 import VideoMontage.Movie;
-import VideoMontage.RelativeMoment;
 import VideoMontage.StartingMoment;
 import VideoMontage.Subtitle;
 import VideoMontage.TextArea;
@@ -42,10 +41,6 @@ public class VideoMontageFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final Subtitle subtitle, @Extension final IFormattableDocument document) {
-    EList<RelativeMoment> _relativemoment = subtitle.getRelativemoment();
-    for (final RelativeMoment relativeMoment : _relativemoment) {
-      document.<RelativeMoment>format(relativeMoment);
-    }
     document.<TextArea>format(subtitle.getTextarea());
     document.<StartingMoment>format(subtitle.getStartingmoment());
   }

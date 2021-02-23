@@ -141,22 +141,13 @@ public interface VideoMontagePackage extends EPackage {
 	int ELEMENT__DURATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__RELATIVEMOMENT = 1;
-
-	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 2;
+	int ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -185,15 +176,6 @@ public interface VideoMontagePackage extends EPackage {
 	 * @ordered
 	 */
 	int VIDEO_ELEMENT__DURATION = ELEMENT__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_ELEMENT__RELATIVEMOMENT = ELEMENT__RELATIVEMOMENT;
 
 	/**
 	 * The number of structural features of the '<em>Video Element</em>' class.
@@ -231,15 +213,6 @@ public interface VideoMontagePackage extends EPackage {
 	 * @ordered
 	 */
 	int AUDIO_ELEMENT__DURATION = ELEMENT__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUDIO_ELEMENT__RELATIVEMOMENT = ELEMENT__RELATIVEMOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,15 +279,6 @@ public interface VideoMontagePackage extends EPackage {
 	int SUBTITLE__DURATION = ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUBTITLE__RELATIVEMOMENT = ELEMENT__RELATIVEMOMENT;
-
-	/**
 	 * The feature id for the '<em><b>Textarea</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,15 +334,6 @@ public interface VideoMontagePackage extends EPackage {
 	int TITLE__DURATION = VIDEO_ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TITLE__RELATIVEMOMENT = VIDEO_ELEMENT__RELATIVEMOMENT;
-
-	/**
 	 * The feature id for the '<em><b>Textarea</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -432,15 +387,6 @@ public interface VideoMontagePackage extends EPackage {
 	 * @ordered
 	 */
 	int CLIP__DURATION = VIDEO_ELEMENT__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIP__RELATIVEMOMENT = VIDEO_ELEMENT__RELATIVEMOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Start Cut</b></em>' attribute.
@@ -516,15 +462,6 @@ public interface VideoMontagePackage extends EPackage {
 	int VIDEO__DURATION = VIDEO_ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO__RELATIVEMOMENT = VIDEO_ELEMENT__RELATIVEMOMENT;
-
-	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,22 +480,13 @@ public interface VideoMontagePackage extends EPackage {
 	int VIDEO__NAME = VIDEO_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Clip</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO__CLIP = VIDEO_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Video</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_FEATURE_COUNT = VIDEO_ELEMENT_FEATURE_COUNT + 3;
+	int VIDEO_FEATURE_COUNT = VIDEO_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Video</em>' class.
@@ -587,15 +515,6 @@ public interface VideoMontagePackage extends EPackage {
 	 * @ordered
 	 */
 	int AUDIO__DURATION = AUDIO_ELEMENT__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUDIO__RELATIVEMOMENT = AUDIO_ELEMENT__RELATIVEMOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -634,22 +553,13 @@ public interface VideoMontagePackage extends EPackage {
 	int AUDIO__PATH = AUDIO_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Audioclip</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUDIO__AUDIOCLIP = AUDIO_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Audio</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_FEATURE_COUNT = AUDIO_ELEMENT_FEATURE_COUNT + 2;
+	int AUDIO_FEATURE_COUNT = AUDIO_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Audio</em>' class.
@@ -678,15 +588,6 @@ public interface VideoMontagePackage extends EPackage {
 	 * @ordered
 	 */
 	int AUDIO_CLIP__DURATION = AUDIO_ELEMENT__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUDIO_CLIP__RELATIVEMOMENT = AUDIO_ELEMENT__RELATIVEMOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -826,13 +727,31 @@ public interface VideoMontagePackage extends EPackage {
 	int RELATIVE_MOMENT__VALUE = STARTING_MOMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_MOMENT__ELEMENT = STARTING_MOMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Operation Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_MOMENT__OPERATION_MOMENT = STARTING_MOMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Relative Moment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIVE_MOMENT_FEATURE_COUNT = STARTING_MOMENT_FEATURE_COUNT + 2;
+	int RELATIVE_MOMENT_FEATURE_COUNT = STARTING_MOMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Relative Moment</em>' class.
@@ -936,22 +855,22 @@ public interface VideoMontagePackage extends EPackage {
 	int TEXT_AREA__TEXT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Font</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_AREA__FONT = 5;
-
-	/**
 	 * The feature id for the '<em><b>Animation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_AREA__ANIMATION = 6;
+	int TEXT_AREA__ANIMATION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Font</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__FONT = 6;
 
 	/**
 	 * The number of structural features of the '<em>Text Area</em>' class.
@@ -1064,15 +983,6 @@ public interface VideoMontagePackage extends EPackage {
 	int TEXT_AREA_DYNAMIC__TEXT = TEXT_AREA__TEXT;
 
 	/**
-	 * The feature id for the '<em><b>Font</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_AREA_DYNAMIC__FONT = TEXT_AREA__FONT;
-
-	/**
 	 * The feature id for the '<em><b>Animation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1080,6 +990,15 @@ public interface VideoMontagePackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_AREA_DYNAMIC__ANIMATION = TEXT_AREA__ANIMATION;
+
+	/**
+	 * The feature id for the '<em><b>Font</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA_DYNAMIC__FONT = TEXT_AREA__FONT;
 
 	/**
 	 * The feature id for the '<em><b>Text Src</b></em>' attribute.
@@ -1202,22 +1121,22 @@ public interface VideoMontagePackage extends EPackage {
 	int FONT = 18;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FONT__NAME = 0;
-
-	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FONT__LENGTH = 1;
+	int FONT__LENGTH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Font Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FONT__FONT_STYLE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Font</em>' class.
@@ -1302,6 +1221,28 @@ public interface VideoMontagePackage extends EPackage {
 	 * @generated
 	 */
 	int MOMENT = 21;
+
+
+	/**
+	 * The meta object id for the '{@link VideoMontage.FontStyle <em>Font Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see VideoMontage.FontStyle
+	 * @see VideoMontage.impl.VideoMontagePackageImpl#getFontStyle()
+	 * @generated
+	 */
+	int FONT_STYLE = 22;
+
+
+	/**
+	 * The meta object id for the '{@link VideoMontage.OperationMoment <em>Operation Moment</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see VideoMontage.OperationMoment
+	 * @see VideoMontage.impl.VideoMontagePackageImpl#getOperationMoment()
+	 * @generated
+	 */
+	int OPERATION_MOMENT = 23;
 
 
 	/**
@@ -1562,17 +1503,6 @@ public interface VideoMontagePackage extends EPackage {
 	EAttribute getVideo_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link VideoMontage.Video#getClip <em>Clip</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Clip</em>'.
-	 * @see VideoMontage.Video#getClip()
-	 * @see #getVideo()
-	 * @generated
-	 */
-	EReference getVideo_Clip();
-
-	/**
 	 * Returns the meta object for class '{@link VideoMontage.Audio <em>Audio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1592,17 +1522,6 @@ public interface VideoMontagePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAudio_Path();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link VideoMontage.Audio#getAudioclip <em>Audioclip</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Audioclip</em>'.
-	 * @see VideoMontage.Audio#getAudioclip()
-	 * @see #getAudio()
-	 * @generated
-	 */
-	EReference getAudio_Audioclip();
 
 	/**
 	 * Returns the meta object for class '{@link VideoMontage.AudioClip <em>Audio Clip</em>}'.
@@ -1690,17 +1609,6 @@ public interface VideoMontagePackage extends EPackage {
 	EAttribute getElement_Duration();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link VideoMontage.Element#getRelativemoment <em>Relativemoment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Relativemoment</em>'.
-	 * @see VideoMontage.Element#getRelativemoment()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Relativemoment();
-
-	/**
 	 * Returns the meta object for class '{@link VideoMontage.RelativeMoment <em>Relative Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1731,6 +1639,28 @@ public interface VideoMontagePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRelativeMoment_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link VideoMontage.RelativeMoment#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see VideoMontage.RelativeMoment#getElement()
+	 * @see #getRelativeMoment()
+	 * @generated
+	 */
+	EReference getRelativeMoment_Element();
+
+	/**
+	 * Returns the meta object for the attribute '{@link VideoMontage.RelativeMoment#getOperationMoment <em>Operation Moment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operation Moment</em>'.
+	 * @see VideoMontage.RelativeMoment#getOperationMoment()
+	 * @see #getRelativeMoment()
+	 * @generated
+	 */
+	EAttribute getRelativeMoment_OperationMoment();
 
 	/**
 	 * Returns the meta object for class '{@link VideoMontage.AbsoluteMoment <em>Absolute Moment</em>}'.
@@ -1924,17 +1854,6 @@ public interface VideoMontagePackage extends EPackage {
 	EClass getFont();
 
 	/**
-	 * Returns the meta object for the attribute '{@link VideoMontage.Font#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see VideoMontage.Font#getName()
-	 * @see #getFont()
-	 * @generated
-	 */
-	EAttribute getFont_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link VideoMontage.Font#getLength <em>Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1944,6 +1863,17 @@ public interface VideoMontagePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFont_Length();
+
+	/**
+	 * Returns the meta object for the attribute '{@link VideoMontage.Font#getFontStyle <em>Font Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Style</em>'.
+	 * @see VideoMontage.Font#getFontStyle()
+	 * @see #getFont()
+	 * @generated
+	 */
+	EAttribute getFont_FontStyle();
 
 	/**
 	 * Returns the meta object for class '{@link VideoMontage.Transition <em>Transition</em>}'.
@@ -1996,6 +1926,26 @@ public interface VideoMontagePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getMoment();
+
+	/**
+	 * Returns the meta object for enum '{@link VideoMontage.FontStyle <em>Font Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Font Style</em>'.
+	 * @see VideoMontage.FontStyle
+	 * @generated
+	 */
+	EEnum getFontStyle();
+
+	/**
+	 * Returns the meta object for enum '{@link VideoMontage.OperationMoment <em>Operation Moment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Operation Moment</em>'.
+	 * @see VideoMontage.OperationMoment
+	 * @generated
+	 */
+	EEnum getOperationMoment();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2227,14 +2177,6 @@ public interface VideoMontagePackage extends EPackage {
 		EAttribute VIDEO__NAME = eINSTANCE.getVideo_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Clip</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VIDEO__CLIP = eINSTANCE.getVideo_Clip();
-
-		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.AudioImpl <em>Audio</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2251,14 +2193,6 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUDIO__PATH = eINSTANCE.getAudio_Path();
-
-		/**
-		 * The meta object literal for the '<em><b>Audioclip</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AUDIO__AUDIOCLIP = eINSTANCE.getAudio_Audioclip();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.AudioClipImpl <em>Audio Clip</em>}' class.
@@ -2331,14 +2265,6 @@ public interface VideoMontagePackage extends EPackage {
 		EAttribute ELEMENT__DURATION = eINSTANCE.getElement_Duration();
 
 		/**
-		 * The meta object literal for the '<em><b>Relativemoment</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__RELATIVEMOMENT = eINSTANCE.getElement_Relativemoment();
-
-		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.RelativeMomentImpl <em>Relative Moment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2363,6 +2289,22 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RELATIVE_MOMENT__VALUE = eINSTANCE.getRelativeMoment_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIVE_MOMENT__ELEMENT = eINSTANCE.getRelativeMoment_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation Moment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATIVE_MOMENT__OPERATION_MOMENT = eINSTANCE.getRelativeMoment_OperationMoment();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.AbsoluteMomentImpl <em>Absolute Moment</em>}' class.
@@ -2523,20 +2465,20 @@ public interface VideoMontagePackage extends EPackage {
 		EClass FONT = eINSTANCE.getFont();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FONT__NAME = eINSTANCE.getFont_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute FONT__LENGTH = eINSTANCE.getFont_Length();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FONT__FONT_STYLE = eINSTANCE.getFont_FontStyle();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.TransitionImpl <em>Transition</em>}' class.
@@ -2583,6 +2525,26 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum MOMENT = eINSTANCE.getMoment();
+
+		/**
+		 * The meta object literal for the '{@link VideoMontage.FontStyle <em>Font Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see VideoMontage.FontStyle
+		 * @see VideoMontage.impl.VideoMontagePackageImpl#getFontStyle()
+		 * @generated
+		 */
+		EEnum FONT_STYLE = eINSTANCE.getFontStyle();
+
+		/**
+		 * The meta object literal for the '{@link VideoMontage.OperationMoment <em>Operation Moment</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see VideoMontage.OperationMoment
+		 * @see VideoMontage.impl.VideoMontagePackageImpl#getOperationMoment()
+		 * @generated
+		 */
+		EEnum OPERATION_MOMENT = eINSTANCE.getOperationMoment();
 
 	}
 

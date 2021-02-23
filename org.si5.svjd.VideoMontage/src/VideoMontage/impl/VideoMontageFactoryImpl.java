@@ -91,6 +91,10 @@ public class VideoMontageFactoryImpl extends EFactoryImpl implements VideoMontag
 				return createColorFromString(eDataType, initialValue);
 			case VideoMontagePackage.MOMENT:
 				return createMomentFromString(eDataType, initialValue);
+			case VideoMontagePackage.FONT_STYLE:
+				return createFontStyleFromString(eDataType, initialValue);
+			case VideoMontagePackage.OPERATION_MOMENT:
+				return createOperationMomentFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +112,10 @@ public class VideoMontageFactoryImpl extends EFactoryImpl implements VideoMontag
 				return convertColorToString(eDataType, instanceValue);
 			case VideoMontagePackage.MOMENT:
 				return convertMomentToString(eDataType, instanceValue);
+			case VideoMontagePackage.FONT_STYLE:
+				return convertFontStyleToString(eDataType, instanceValue);
+			case VideoMontagePackage.OPERATION_MOMENT:
+				return convertOperationMomentToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -320,6 +328,46 @@ public class VideoMontageFactoryImpl extends EFactoryImpl implements VideoMontag
 	 * @generated
 	 */
 	public String convertMomentToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FontStyle createFontStyleFromString(EDataType eDataType, String initialValue) {
+		FontStyle result = FontStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFontStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperationMoment createOperationMomentFromString(EDataType eDataType, String initialValue) {
+		OperationMoment result = OperationMoment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOperationMomentToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -2,8 +2,6 @@
  */
 package VideoMontage;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link VideoMontage.Element#getDuration <em>Duration</em>}</li>
- *   <li>{@link VideoMontage.Element#getRelativemoment <em>Relativemoment</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getElement()
@@ -45,17 +42,5 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setDuration(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Relativemoment</b></em>' containment reference list.
-	 * The list contents are of type {@link VideoMontage.RelativeMoment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relativemoment</em>' containment reference list.
-	 * @see VideoMontage.VideoMontagePackage#getElement_Relativemoment()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<RelativeMoment> getRelativemoment();
 
 } // Element

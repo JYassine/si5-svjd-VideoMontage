@@ -14,7 +14,6 @@ package VideoMontage;
  * <ul>
  *   <li>{@link VideoMontage.Video#getPath <em>Path</em>}</li>
  *   <li>{@link VideoMontage.Video#getName <em>Name</em>}</li>
- *   <li>{@link VideoMontage.Video#getClip <em>Clip</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getVideo()
@@ -65,27 +64,5 @@ public interface Video extends VideoElement {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Clip</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Clip</em>' containment reference.
-	 * @see #setClip(Clip)
-	 * @see VideoMontage.VideoMontagePackage#getVideo_Clip()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Clip getClip();
-
-	/**
-	 * Sets the value of the '{@link VideoMontage.Video#getClip <em>Clip</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Clip</em>' containment reference.
-	 * @see #getClip()
-	 * @generated
-	 */
-	void setClip(Clip value);
 
 } // Video
