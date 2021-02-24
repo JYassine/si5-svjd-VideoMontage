@@ -261,71 +261,81 @@ public class VideoMontageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.svjd.VideoMontage.Subtitle");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSubtitleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cStartKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cStartingmomentAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStartingmomentStartingMomentParserRuleCall_3_0 = (RuleCall)cStartingmomentAssignment_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cDurationKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDurationAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDurationEDoubleParserRuleCall_5_1_0 = (RuleCall)cDurationAssignment_5_1.eContents().get(0);
-		private final Keyword cTextAreaKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTextareaAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTextareaTextAreaParserRuleCall_7_0 = (RuleCall)cTextareaAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cStartKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cStartingmomentAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStartingmomentStartingMomentParserRuleCall_4_0 = (RuleCall)cStartingmomentAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cDurationKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cDurationAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cDurationEDoubleParserRuleCall_6_1_0 = (RuleCall)cDurationAssignment_6_1.eContents().get(0);
+		private final Keyword cTextAreaKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cTextareaAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cTextareaTextAreaParserRuleCall_8_0 = (RuleCall)cTextareaAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Subtitle:
-		//	'Subtitle' 'start' ':' startingmoment=StartingMoment
+		//	'Subtitle'
+		//	name=EString 'start' ':' startingmoment=StartingMoment
 		//	'{' ('duration' duration=EDouble)?
 		//	'textArea' textarea=TextArea
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Subtitle' 'start' ':' startingmoment=StartingMoment '{' ('duration' duration=EDouble)? 'textArea' textarea=TextArea '}'
+		//'Subtitle' name=EString 'start' ':' startingmoment=StartingMoment '{' ('duration' duration=EDouble)? 'textArea'
+		//textarea=TextArea '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Subtitle'
 		public Keyword getSubtitleKeyword_0() { return cSubtitleKeyword_0; }
 		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
 		//'start'
-		public Keyword getStartKeyword_1() { return cStartKeyword_1; }
+		public Keyword getStartKeyword_2() { return cStartKeyword_2; }
 		
 		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
 		//startingmoment=StartingMoment
-		public Assignment getStartingmomentAssignment_3() { return cStartingmomentAssignment_3; }
+		public Assignment getStartingmomentAssignment_4() { return cStartingmomentAssignment_4; }
 		
 		//StartingMoment
-		public RuleCall getStartingmomentStartingMomentParserRuleCall_3_0() { return cStartingmomentStartingMomentParserRuleCall_3_0; }
+		public RuleCall getStartingmomentStartingMomentParserRuleCall_4_0() { return cStartingmomentStartingMomentParserRuleCall_4_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
 		//('duration' duration=EDouble)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'duration'
-		public Keyword getDurationKeyword_5_0() { return cDurationKeyword_5_0; }
+		public Keyword getDurationKeyword_6_0() { return cDurationKeyword_6_0; }
 		
 		//duration=EDouble
-		public Assignment getDurationAssignment_5_1() { return cDurationAssignment_5_1; }
+		public Assignment getDurationAssignment_6_1() { return cDurationAssignment_6_1; }
 		
 		//EDouble
-		public RuleCall getDurationEDoubleParserRuleCall_5_1_0() { return cDurationEDoubleParserRuleCall_5_1_0; }
+		public RuleCall getDurationEDoubleParserRuleCall_6_1_0() { return cDurationEDoubleParserRuleCall_6_1_0; }
 		
 		//'textArea'
-		public Keyword getTextAreaKeyword_6() { return cTextAreaKeyword_6; }
+		public Keyword getTextAreaKeyword_7() { return cTextAreaKeyword_7; }
 		
 		//textarea=TextArea
-		public Assignment getTextareaAssignment_7() { return cTextareaAssignment_7; }
+		public Assignment getTextareaAssignment_8() { return cTextareaAssignment_8; }
 		
 		//TextArea
-		public RuleCall getTextareaTextAreaParserRuleCall_7_0() { return cTextareaTextAreaParserRuleCall_7_0; }
+		public RuleCall getTextareaTextAreaParserRuleCall_8_0() { return cTextareaTextAreaParserRuleCall_8_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class AudioElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.svjd.VideoMontage.Audio");
@@ -1711,7 +1721,8 @@ public class VideoMontageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Subtitle:
-	//	'Subtitle' 'start' ':' startingmoment=StartingMoment
+	//	'Subtitle'
+	//	name=EString 'start' ':' startingmoment=StartingMoment
 	//	'{' ('duration' duration=EDouble)?
 	//	'textArea' textarea=TextArea
 	//	'}';

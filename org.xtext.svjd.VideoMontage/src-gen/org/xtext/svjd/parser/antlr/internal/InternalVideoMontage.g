@@ -493,20 +493,39 @@ ruleSubtitle returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getSubtitleAccess().getSubtitleKeyword_0());
 		}
-		otherlv_1='start'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSubtitleAccess().getNameEStringParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSubtitleRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.xtext.svjd.VideoMontage.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='start'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getSubtitleAccess().getStartKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getSubtitleAccess().getStartKeyword_2());
 		}
-		otherlv_2=':'
+		otherlv_3=':'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getSubtitleAccess().getColonKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getSubtitleAccess().getColonKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSubtitleAccess().getStartingmomentStartingMomentParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getSubtitleAccess().getStartingmomentStartingMomentParserRuleCall_4_0());
 				}
-				lv_startingmoment_3_0=ruleStartingMoment
+				lv_startingmoment_4_0=ruleStartingMoment
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSubtitleRule());
@@ -514,27 +533,27 @@ ruleSubtitle returns [EObject current=null]
 					set(
 						$current,
 						"startingmoment",
-						lv_startingmoment_3_0,
+						lv_startingmoment_4_0,
 						"org.xtext.svjd.VideoMontage.StartingMoment");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4='{'
+		otherlv_5='{'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getSubtitleAccess().getLeftCurlyBracketKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getSubtitleAccess().getLeftCurlyBracketKeyword_5());
 		}
 		(
-			otherlv_5='duration'
+			otherlv_6='duration'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getSubtitleAccess().getDurationKeyword_5_0());
+				newLeafNode(otherlv_6, grammarAccess.getSubtitleAccess().getDurationKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSubtitleAccess().getDurationEDoubleParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getSubtitleAccess().getDurationEDoubleParserRuleCall_6_1_0());
 					}
-					lv_duration_6_0=ruleEDouble
+					lv_duration_7_0=ruleEDouble
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSubtitleRule());
@@ -542,23 +561,23 @@ ruleSubtitle returns [EObject current=null]
 						set(
 							$current,
 							"duration",
-							lv_duration_6_0,
+							lv_duration_7_0,
 							"org.xtext.svjd.VideoMontage.EDouble");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_7='textArea'
+		otherlv_8='textArea'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getSubtitleAccess().getTextAreaKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getSubtitleAccess().getTextAreaKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSubtitleAccess().getTextareaTextAreaParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSubtitleAccess().getTextareaTextAreaParserRuleCall_8_0());
 				}
-				lv_textarea_8_0=ruleTextArea
+				lv_textarea_9_0=ruleTextArea
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSubtitleRule());
@@ -566,15 +585,15 @@ ruleSubtitle returns [EObject current=null]
 					set(
 						$current,
 						"textarea",
-						lv_textarea_8_0,
+						lv_textarea_9_0,
 						"org.xtext.svjd.VideoMontage.TextArea");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_9='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getSubtitleAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_10, grammarAccess.getSubtitleAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;

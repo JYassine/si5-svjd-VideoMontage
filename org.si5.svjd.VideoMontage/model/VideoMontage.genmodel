@@ -35,6 +35,7 @@
     <genClasses ecoreClass="VideoMontage.ecore#//Subtitle">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Subtitle/textarea"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Subtitle/startingmoment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Subtitle/name"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//Title">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Title/textarea"/>

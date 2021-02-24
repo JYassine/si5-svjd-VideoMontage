@@ -395,6 +395,15 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSubtitle_Name() {
+		return (EAttribute)subtitleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTitle() {
 		return titleEClass;
 	}
@@ -920,6 +929,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		subtitleEClass = createEClass(SUBTITLE);
 		createEReference(subtitleEClass, SUBTITLE__TEXTAREA);
 		createEReference(subtitleEClass, SUBTITLE__STARTINGMOMENT);
+		createEAttribute(subtitleEClass, SUBTITLE__NAME);
 
 		titleEClass = createEClass(TITLE);
 		createEReference(titleEClass, TITLE__TEXTAREA);
@@ -1053,6 +1063,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEClass(subtitleEClass, Subtitle.class, "Subtitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSubtitle_Textarea(), this.getTextArea(), null, "textarea", null, 1, 1, Subtitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSubtitle_Startingmoment(), this.getStartingMoment(), null, "startingmoment", null, 1, 1, Subtitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubtitle_Name(), ecorePackage.getEString(), "name", null, 0, 1, Subtitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(titleEClass, Title.class, "Title", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTitle_Textarea(), this.getTextArea(), null, "textarea", null, 1, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

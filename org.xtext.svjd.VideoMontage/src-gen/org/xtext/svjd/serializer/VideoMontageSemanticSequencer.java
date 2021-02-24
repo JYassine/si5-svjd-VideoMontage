@@ -257,7 +257,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Subtitle returns Subtitle
 	 *
 	 * Constraint:
-	 *     (startingmoment=StartingMoment duration=EDouble? textarea=TextArea)
+	 *     (name=EString startingmoment=StartingMoment duration=EDouble? textarea=TextArea)
 	 */
 	protected void sequence_Subtitle(ISerializationContext context, Subtitle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

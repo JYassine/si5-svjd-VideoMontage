@@ -36,7 +36,8 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Subtitle returns Subtitle:
-	'Subtitle' 'start' ':' startingmoment=StartingMoment
+	'Subtitle'
+	name=EString 'start' ':' startingmoment=StartingMoment
 	'{'
 		('duration' duration=EDouble)?
 		'textArea' textarea=TextArea
@@ -68,6 +69,15 @@ Clip returns Clip:
 		('startCut' startCut=EDouble)?
 		('endCut' endCut=EDouble)?
 		('video'  video+=Video (video+=Video)* )?
+	'}';
+
+Title returns Title:
+	'Title'
+	 name=EString
+	'{'
+		('duration' duration=EDouble)?
+		('backgroundColor' backgroundColor=Color)?
+		'textArea' textarea=TextArea
 	'}';
 
 Video returns Video:
@@ -111,14 +121,6 @@ enum Moment returns Moment:
 				starting = 'starting' | ending = 'ending';
 
 
-Title returns Title:
-	'Title'
-	 name=EString
-	'{'
-		('duration' duration=EDouble)?
-		('backgroundColor' backgroundColor=Color)?
-		'textArea' textarea=TextArea
-	'}';
 
 TextArea_Impl returns TextArea:
 	'TextArea'

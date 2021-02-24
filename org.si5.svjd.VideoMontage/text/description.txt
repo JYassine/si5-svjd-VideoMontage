@@ -23,6 +23,7 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
   Class Subtitle -> Element
     Reference textarea : TextArea<<1..1>>
     Reference startingmoment : StartingMoment<<1..1>>
+    Attribute name : EString
 
   Class Title -> VideoElement
     Reference textarea : TextArea<<1..1>>

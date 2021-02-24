@@ -297,13 +297,22 @@ public interface VideoMontagePackage extends EPackage {
 	int SUBTITLE__STARTINGMOMENT = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBTITLE__NAME = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Subtitle</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBTITLE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int SUBTITLE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Subtitle</em>' class.
@@ -1394,6 +1403,17 @@ public interface VideoMontagePackage extends EPackage {
 	EReference getSubtitle_Startingmoment();
 
 	/**
+	 * Returns the meta object for the attribute '{@link VideoMontage.Subtitle#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see VideoMontage.Subtitle#getName()
+	 * @see #getSubtitle()
+	 * @generated
+	 */
+	EAttribute getSubtitle_Name();
+
+	/**
 	 * Returns the meta object for class '{@link VideoMontage.Title <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2101,6 +2121,14 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SUBTITLE__STARTINGMOMENT = eINSTANCE.getSubtitle_Startingmoment();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SUBTITLE__NAME = eINSTANCE.getSubtitle_Name();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.TitleImpl <em>Title</em>}' class.

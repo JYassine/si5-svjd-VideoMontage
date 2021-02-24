@@ -46,7 +46,7 @@ public class VideoMontageParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAudioElementAccess().getGroup(), "rule__AudioElement__Group__0");
 			builder.put(grammarAccess.getVideoElementAccess().getGroup(), "rule__VideoElement__Group__0");
 			builder.put(grammarAccess.getSubtitleAccess().getGroup(), "rule__Subtitle__Group__0");
-			builder.put(grammarAccess.getSubtitleAccess().getGroup_5(), "rule__Subtitle__Group_5__0");
+			builder.put(grammarAccess.getSubtitleAccess().getGroup_6(), "rule__Subtitle__Group_6__0");
 			builder.put(grammarAccess.getAudioAccess().getGroup(), "rule__Audio__Group__0");
 			builder.put(grammarAccess.getAudioAccess().getGroup_6(), "rule__Audio__Group_6__0");
 			builder.put(grammarAccess.getAudioAccess().getGroup_7(), "rule__Audio__Group_7__0");
@@ -105,9 +105,10 @@ public class VideoMontageParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMovieAccess().getAudioelementAssignment_5_1(), "rule__Movie__AudioelementAssignment_5_1");
 			builder.put(grammarAccess.getMovieAccess().getSubtitleAssignment_6_0(), "rule__Movie__SubtitleAssignment_6_0");
 			builder.put(grammarAccess.getMovieAccess().getSubtitleAssignment_6_1(), "rule__Movie__SubtitleAssignment_6_1");
-			builder.put(grammarAccess.getSubtitleAccess().getStartingmomentAssignment_3(), "rule__Subtitle__StartingmomentAssignment_3");
-			builder.put(grammarAccess.getSubtitleAccess().getDurationAssignment_5_1(), "rule__Subtitle__DurationAssignment_5_1");
-			builder.put(grammarAccess.getSubtitleAccess().getTextareaAssignment_7(), "rule__Subtitle__TextareaAssignment_7");
+			builder.put(grammarAccess.getSubtitleAccess().getNameAssignment_1(), "rule__Subtitle__NameAssignment_1");
+			builder.put(grammarAccess.getSubtitleAccess().getStartingmomentAssignment_4(), "rule__Subtitle__StartingmomentAssignment_4");
+			builder.put(grammarAccess.getSubtitleAccess().getDurationAssignment_6_1(), "rule__Subtitle__DurationAssignment_6_1");
+			builder.put(grammarAccess.getSubtitleAccess().getTextareaAssignment_8(), "rule__Subtitle__TextareaAssignment_8");
 			builder.put(grammarAccess.getAudioAccess().getNameAssignment_1(), "rule__Audio__NameAssignment_1");
 			builder.put(grammarAccess.getAudioAccess().getStartingmomentAssignment_4(), "rule__Audio__StartingmomentAssignment_4");
 			builder.put(grammarAccess.getAudioAccess().getPathAssignment_6_1(), "rule__Audio__PathAssignment_6_1");
