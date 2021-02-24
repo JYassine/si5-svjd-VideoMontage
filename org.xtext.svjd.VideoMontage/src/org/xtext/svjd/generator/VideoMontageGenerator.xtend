@@ -3,10 +3,15 @@
  */
 package org.xtext.svjd.generator
 
+import VideoMontage.Movie
+import VideoMontage.Title
+import VideoMontage.Video
+import VideoMontage.VideoElement
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import VideoMontage.Clip
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +21,46 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class VideoMontageGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		var Object root = resource.contents.get(0);
+		if (! (root instanceof Movie)) {
+			return
+		}
+		var Movie movie = root as Movie
+		fsa.generateFile(movie.title + '.py', compile(movie))
 	}
+	
+	def compile(Movie movie) '''
+	//Wiring code generated from an ArduinoML model
+	// Application name: «movie.title»
+	from moviepy.editor import *
+	videoList = []
+	«FOR VideoElement videoelement : movie.videoelement»
+		«declare(videoelement)»
+	«ENDFOR»		
+	'''
+	
+	def declare(VideoElement v) '''
+		«switch v {
+				Video: declare(v as Video)
+				Clip: declare(v as Clip)
+				Title: declare(v as Title)
+			  }»
+		
+	
+	'''
+	
+	def declare(Video video) '''
+		videoList.append(VideoFileClip("«video.path»"))
+	'''
+	
+	def declare(Clip clip) '''
+		videoList.append(VideoFileClip("«clip.video.get(0).path»"))
+	'''
+	
+	def declare(Title title) '''
+		videoList.append(( TextClip("«title.textarea.text»",fontsize=70,color='white',bg_color='black')
+		             .set_position('center')
+		             .set_duration(10) ))
+	'''
+	
 }

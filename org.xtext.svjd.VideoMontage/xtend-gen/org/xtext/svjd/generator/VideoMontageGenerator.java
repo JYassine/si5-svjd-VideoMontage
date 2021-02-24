@@ -3,7 +3,14 @@
  */
 package org.xtext.svjd.generator;
 
+import VideoMontage.Clip;
+import VideoMontage.Movie;
+import VideoMontage.Title;
+import VideoMontage.Video;
+import VideoMontage.VideoElement;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -17,5 +24,100 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class VideoMontageGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Object root = resource.getContents().get(0);
+    if ((!(root instanceof Movie))) {
+      return;
+    }
+    Movie movie = ((Movie) root);
+    String _title = movie.getTitle();
+    String _plus = (_title + ".py");
+    fsa.generateFile(_plus, this.compile(movie));
+  }
+  
+  public CharSequence compile(final Movie movie) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("//Wiring code generated from an ArduinoML model");
+    _builder.newLine();
+    _builder.append("// Application name: ");
+    String _title = movie.getTitle();
+    _builder.append(_title);
+    _builder.newLineIfNotEmpty();
+    _builder.append("from moviepy.editor import *");
+    _builder.newLine();
+    _builder.append("videoList = []");
+    _builder.newLine();
+    {
+      EList<VideoElement> _videoelement = movie.getVideoelement();
+      for(final VideoElement videoelement : _videoelement) {
+        CharSequence _declare = this.declare(videoelement);
+        _builder.append(_declare);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence declare(final VideoElement v) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _switchResult = null;
+    boolean _matched = false;
+    if (v instanceof Video) {
+      _matched=true;
+      _switchResult = this.declare(((Video) v));
+    }
+    if (!_matched) {
+      if (v instanceof Clip) {
+        _matched=true;
+        _switchResult = this.declare(((Clip) v));
+      }
+    }
+    if (!_matched) {
+      if (v instanceof Title) {
+        _matched=true;
+        _switchResult = this.declare(((Title) v));
+      }
+    }
+    _builder.append(_switchResult);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence declare(final Video video) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("videoList.append(VideoFileClip(\"");
+    String _path = video.getPath();
+    _builder.append(_path);
+    _builder.append("\"))");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence declare(final Clip clip) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("videoList.append(VideoFileClip(\"");
+    String _path = clip.getVideo().get(0).getPath();
+    _builder.append(_path);
+    _builder.append("\"))");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence declare(final Title title) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("videoList.append(( TextClip(\"");
+    String _text = title.getTextarea().getText();
+    _builder.append(_text);
+    _builder.append("\",fontsize=70,color=\'white\',bg_color=\'black\')");
+    _builder.newLineIfNotEmpty();
+    _builder.append("             ");
+    _builder.append(".set_position(\'center\')");
+    _builder.newLine();
+    _builder.append("             ");
+    _builder.append(".set_duration(10) ))");
+    _builder.newLine();
+    return _builder;
   }
 }
