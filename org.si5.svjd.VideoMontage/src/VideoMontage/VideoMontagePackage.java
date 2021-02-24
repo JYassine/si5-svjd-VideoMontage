@@ -434,7 +434,7 @@ public interface VideoMontagePackage extends EPackage {
 	int CLIP__NAME = VIDEO_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Video</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Video</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -662,7 +662,7 @@ public interface VideoMontagePackage extends EPackage {
 	int AUDIO_CLIP__END_CUT = AUDIO_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Audio</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Audio</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1500,10 +1500,10 @@ public interface VideoMontagePackage extends EPackage {
 	EAttribute getClip_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link VideoMontage.Clip#getVideo <em>Video</em>}'.
+	 * Returns the meta object for the reference list '{@link VideoMontage.Clip#getVideo <em>Video</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Video</em>'.
+	 * @return the meta object for the reference list '<em>Video</em>'.
 	 * @see VideoMontage.Clip#getVideo()
 	 * @see #getClip()
 	 * @generated
@@ -1607,10 +1607,10 @@ public interface VideoMontagePackage extends EPackage {
 	EAttribute getAudioClip_EndCut();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link VideoMontage.AudioClip#getAudio <em>Audio</em>}'.
+	 * Returns the meta object for the reference list '{@link VideoMontage.AudioClip#getAudio <em>Audio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Audio</em>'.
+	 * @return the meta object for the reference list '<em>Audio</em>'.
 	 * @see VideoMontage.AudioClip#getAudio()
 	 * @see #getAudioClip()
 	 * @generated
@@ -2199,7 +2199,7 @@ public interface VideoMontagePackage extends EPackage {
 		EAttribute CLIP__NAME = eINSTANCE.getClip_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Video</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Video</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2285,7 +2285,7 @@ public interface VideoMontagePackage extends EPackage {
 		EAttribute AUDIO_CLIP__END_CUT = eINSTANCE.getAudioClip_EndCut();
 
 		/**
-		 * The meta object literal for the '<em><b>Audio</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Audio</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

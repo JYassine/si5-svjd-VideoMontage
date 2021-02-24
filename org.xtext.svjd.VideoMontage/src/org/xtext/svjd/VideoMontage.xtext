@@ -59,7 +59,7 @@ AudioClip returns AudioClip:
 		('startCut' startCut=EDouble)
 		('endCut' endCut=EDouble)
 		('transition' transition=Transition)?
-		('audio' audio+=Audio ( audio+=Audio)*)
+		'audio' (audio+=[Audio])* 
 	'}';
 	
 Clip returns Clip:
@@ -68,7 +68,7 @@ Clip returns Clip:
 	'{'
 		('startCut' startCut=EDouble)?
 		('endCut' endCut=EDouble)?
-		('video'  video+=Video (video+=Video)* )?
+		'video'  (video+=[Video])* 
 	'}';
 
 Title returns Title:

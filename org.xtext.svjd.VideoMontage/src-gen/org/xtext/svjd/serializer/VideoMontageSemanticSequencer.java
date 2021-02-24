@@ -126,8 +126,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *         startCut=EDouble 
 	 *         endCut=EDouble 
 	 *         transition=Transition? 
-	 *         audio+=Audio 
-	 *         audio+=Audio*
+	 *         audio+=[Audio|ID]*
 	 *     )
 	 */
 	protected void sequence_AudioClip(ISerializationContext context, AudioClip semanticObject) {
@@ -154,7 +153,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Clip returns Clip
 	 *
 	 * Constraint:
-	 *     (name=EString startCut=EDouble? endCut=EDouble? (video+=Video video+=Video*)?)
+	 *     (name=EString startCut=EDouble? endCut=EDouble? video+=[Video|ID]*)
 	 */
 	protected void sequence_Clip(ISerializationContext context, Clip semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

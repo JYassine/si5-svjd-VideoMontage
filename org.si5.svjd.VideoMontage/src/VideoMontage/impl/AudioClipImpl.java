@@ -9,17 +9,11 @@ import VideoMontage.VideoMontagePackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,7 +93,7 @@ public class AudioClipImpl extends AudioElementImpl implements AudioClip {
 	protected double endCut = END_CUT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAudio() <em>Audio</em>}' containment reference list.
+	 * The cached value of the '{@link #getAudio() <em>Audio</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAudio()
@@ -197,23 +191,9 @@ public class AudioClipImpl extends AudioElementImpl implements AudioClip {
 	 */
 	public EList<Audio> getAudio() {
 		if (audio == null) {
-			audio = new EObjectContainmentEList<Audio>(Audio.class, this, VideoMontagePackage.AUDIO_CLIP__AUDIO);
+			audio = new EObjectResolvingEList<Audio>(Audio.class, this, VideoMontagePackage.AUDIO_CLIP__AUDIO);
 		}
 		return audio;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case VideoMontagePackage.AUDIO_CLIP__AUDIO:
-				return ((InternalEList<?>)getAudio()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

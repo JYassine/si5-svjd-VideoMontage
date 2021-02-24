@@ -895,53 +895,26 @@ ruleAudioClip returns [EObject current=null]
 				)
 			)
 		)?
-		(
-			otherlv_14='audio'
-			{
-				newLeafNode(otherlv_14, grammarAccess.getAudioClipAccess().getAudioKeyword_10_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAudioClipAccess().getAudioAudioParserRuleCall_10_1_0());
-					}
-					lv_audio_15_0=ruleAudio
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAudioClipRule());
-						}
-						add(
-							$current,
-							"audio",
-							lv_audio_15_0,
-							"org.xtext.svjd.VideoMontage.Audio");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAudioClipAccess().getAudioAudioParserRuleCall_10_2_0());
-					}
-					lv_audio_16_0=ruleAudio
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAudioClipRule());
-						}
-						add(
-							$current,
-							"audio",
-							lv_audio_16_0,
-							"org.xtext.svjd.VideoMontage.Audio");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)*
-		)
-		otherlv_17='}'
+		otherlv_14='audio'
 		{
-			newLeafNode(otherlv_17, grammarAccess.getAudioClipAccess().getRightCurlyBracketKeyword_11());
+			newLeafNode(otherlv_14, grammarAccess.getAudioClipAccess().getAudioKeyword_10());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAudioClipRule());
+					}
+				}
+				otherlv_15=RULE_ID
+				{
+					newLeafNode(otherlv_15, grammarAccess.getAudioClipAccess().getAudioAudioCrossReference_11_0());
+				}
+			)
+		)*
+		otherlv_16='}'
+		{
+			newLeafNode(otherlv_16, grammarAccess.getAudioClipAccess().getRightCurlyBracketKeyword_12());
 		}
 	)
 ;
@@ -1039,53 +1012,149 @@ ruleClip returns [EObject current=null]
 				)
 			)
 		)?
+		otherlv_7='video'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getClipAccess().getVideoKeyword_5());
+		}
 		(
-			otherlv_7='video'
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getClipRule());
+					}
+				}
+				otherlv_8=RULE_ID
+				{
+					newLeafNode(otherlv_8, grammarAccess.getClipAccess().getVideoVideoCrossReference_6_0());
+				}
+			)
+		)*
+		otherlv_9='}'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getClipAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleTitle
+entryRuleTitle returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTitleRule()); }
+	iv_ruleTitle=ruleTitle
+	{ $current=$iv_ruleTitle.current; }
+	EOF;
+
+// Rule Title
+ruleTitle returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Title'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTitleAccess().getTitleKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTitleAccess().getNameEStringParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTitleRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.xtext.svjd.VideoMontage.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getTitleAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='duration'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getClipAccess().getVideoKeyword_5_0());
+				newLeafNode(otherlv_3, grammarAccess.getTitleAccess().getDurationKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClipAccess().getVideoVideoParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getTitleAccess().getDurationEDoubleParserRuleCall_3_1_0());
 					}
-					lv_video_8_0=ruleVideo
+					lv_duration_4_0=ruleEDouble
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getClipRule());
+							$current = createModelElementForParent(grammarAccess.getTitleRule());
 						}
-						add(
+						set(
 							$current,
-							"video",
-							lv_video_8_0,
-							"org.xtext.svjd.VideoMontage.Video");
+							"duration",
+							lv_duration_4_0,
+							"org.xtext.svjd.VideoMontage.EDouble");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+		)?
+		(
+			otherlv_5='backgroundColor'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTitleAccess().getBackgroundColorKeyword_4_0());
+			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getClipAccess().getVideoVideoParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getTitleAccess().getBackgroundColorColorEnumRuleCall_4_1_0());
 					}
-					lv_video_9_0=ruleVideo
+					lv_backgroundColor_6_0=ruleColor
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getClipRule());
+							$current = createModelElementForParent(grammarAccess.getTitleRule());
 						}
-						add(
+						set(
 							$current,
-							"video",
-							lv_video_9_0,
-							"org.xtext.svjd.VideoMontage.Video");
+							"backgroundColor",
+							lv_backgroundColor_6_0,
+							"org.xtext.svjd.VideoMontage.Color");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)*
+			)
 		)?
-		otherlv_10='}'
+		otherlv_7='textArea'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getClipAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_7, grammarAccess.getTitleAccess().getTextAreaKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTitleAccess().getTextareaTextAreaParserRuleCall_6_0());
+				}
+				lv_textarea_8_0=ruleTextArea
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTitleRule());
+					}
+					set(
+						$current,
+						"textarea",
+						lv_textarea_8_0,
+						"org.xtext.svjd.VideoMontage.TextArea");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_9='}'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getTitleAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -1411,129 +1480,6 @@ ruleTransition returns [EObject current=null]
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getRightCurlyBracketKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleTitle
-entryRuleTitle returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTitleRule()); }
-	iv_ruleTitle=ruleTitle
-	{ $current=$iv_ruleTitle.current; }
-	EOF;
-
-// Rule Title
-ruleTitle returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Title'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTitleAccess().getTitleKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTitleAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTitleRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.xtext.svjd.VideoMontage.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getTitleAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			otherlv_3='duration'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getTitleAccess().getDurationKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTitleAccess().getDurationEDoubleParserRuleCall_3_1_0());
-					}
-					lv_duration_4_0=ruleEDouble
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTitleRule());
-						}
-						set(
-							$current,
-							"duration",
-							lv_duration_4_0,
-							"org.xtext.svjd.VideoMontage.EDouble");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_5='backgroundColor'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getTitleAccess().getBackgroundColorKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTitleAccess().getBackgroundColorColorEnumRuleCall_4_1_0());
-					}
-					lv_backgroundColor_6_0=ruleColor
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTitleRule());
-						}
-						set(
-							$current,
-							"backgroundColor",
-							lv_backgroundColor_6_0,
-							"org.xtext.svjd.VideoMontage.Color");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_7='textArea'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getTitleAccess().getTextAreaKeyword_5());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTitleAccess().getTextareaTextAreaParserRuleCall_6_0());
-				}
-				lv_textarea_8_0=ruleTextArea
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTitleRule());
-					}
-					set(
-						$current,
-						"textarea",
-						lv_textarea_8_0,
-						"org.xtext.svjd.VideoMontage.TextArea");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_9='}'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getTitleAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;

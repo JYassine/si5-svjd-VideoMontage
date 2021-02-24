@@ -91,13 +91,13 @@ public interface Clip extends VideoElement {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Video</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Video</b></em>' reference list.
 	 * The list contents are of type {@link VideoMontage.Video}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Video</em>' containment reference list.
+	 * @return the value of the '<em>Video</em>' reference list.
 	 * @see VideoMontage.VideoMontagePackage#getClip_Video()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Video> getVideo();
