@@ -154,7 +154,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Clip returns Clip
 	 *
 	 * Constraint:
-	 *     (name=EString startCut=EString? endCut=EString? (video+=Video video+=Video*)?)
+	 *     (name=EString startCut=EDouble? endCut=EDouble? (video+=Video video+=Video*)?)
 	 */
 	protected void sequence_Clip(ISerializationContext context, Clip semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -217,10 +217,8 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *         title=EString 
 	 *         videoelement+=VideoElement 
 	 *         videoelement+=VideoElement* 
-	 *         audioelement+=AudioElement 
-	 *         audioelement+=AudioElement* 
-	 *         subtitle+=Subtitle 
-	 *         subtitle+=Subtitle*
+	 *         (audioelement+=AudioElement audioelement+=AudioElement*)? 
+	 *         (subtitle+=Subtitle subtitle+=Subtitle*)?
 	 *     )
 	 */
 	protected void sequence_Movie(ISerializationContext context, Movie semanticObject) {
@@ -234,7 +232,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     RelativeMoment returns RelativeMoment
 	 *
 	 * Constraint:
-	 *     (moment=Moment? element=[Element|ID] operationMoment=OperationMoment value=EDouble?)
+	 *     (moment=Moment? element=[Element|ID] (operationMoment=OperationMoment value=EDouble)?)
 	 */
 	protected void sequence_RelativeMoment(ISerializationContext context, RelativeMoment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -316,7 +314,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Title returns Title
 	 *
 	 * Constraint:
-	 *     (duration=EDouble? backgroundColor=Color? textarea=TextArea)
+	 *     (name=EString duration=EDouble? backgroundColor=Color? textarea=TextArea)
 	 */
 	protected void sequence_Title(ISerializationContext context, Title semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

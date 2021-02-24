@@ -29,12 +29,12 @@ public interface Clip extends VideoElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Cut</em>' attribute.
-	 * @see #setStartCut(String)
+	 * @see #setStartCut(double)
 	 * @see VideoMontage.VideoMontagePackage#getClip_StartCut()
 	 * @model
 	 * @generated
 	 */
-	String getStartCut();
+	double getStartCut();
 
 	/**
 	 * Sets the value of the '{@link VideoMontage.Clip#getStartCut <em>Start Cut</em>}' attribute.
@@ -44,19 +44,19 @@ public interface Clip extends VideoElement {
 	 * @see #getStartCut()
 	 * @generated
 	 */
-	void setStartCut(String value);
+	void setStartCut(double value);
 
 	/**
 	 * Returns the value of the '<em><b>End Cut</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End Cut</em>' attribute.
-	 * @see #setEndCut(String)
+	 * @see #setEndCut(double)
 	 * @see VideoMontage.VideoMontagePackage#getClip_EndCut()
 	 * @model
 	 * @generated
 	 */
-	String getEndCut();
+	double getEndCut();
 
 	/**
 	 * Sets the value of the '{@link VideoMontage.Clip#getEndCut <em>End Cut</em>}' attribute.
@@ -66,7 +66,7 @@ public interface Clip extends VideoElement {
 	 * @see #getEndCut()
 	 * @generated
 	 */
-	void setEndCut(String value);
+	void setEndCut(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

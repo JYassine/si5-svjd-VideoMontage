@@ -422,6 +422,15 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTitle_Name() {
+		return (EAttribute)titleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getClip() {
 		return clipEClass;
 	}
@@ -915,6 +924,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		titleEClass = createEClass(TITLE);
 		createEReference(titleEClass, TITLE__TEXTAREA);
 		createEAttribute(titleEClass, TITLE__BACKGROUND_COLOR);
+		createEAttribute(titleEClass, TITLE__NAME);
 
 		clipEClass = createEClass(CLIP);
 		createEAttribute(clipEClass, CLIP__START_CUT);
@@ -1047,10 +1057,11 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEClass(titleEClass, Title.class, "Title", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTitle_Textarea(), this.getTextArea(), null, "textarea", null, 1, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTitle_BackgroundColor(), this.getColor(), "backgroundColor", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTitle_Name(), ecorePackage.getEString(), "name", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clipEClass, Clip.class, "Clip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClip_StartCut(), ecorePackage.getEString(), "startCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClip_EndCut(), ecorePackage.getEString(), "endCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClip_StartCut(), ecorePackage.getEDouble(), "startCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClip_EndCut(), ecorePackage.getEDouble(), "endCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClip_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClip_Video(), this.getVideo(), null, "video", null, 0, -1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -14,6 +14,7 @@ package VideoMontage;
  * <ul>
  *   <li>{@link VideoMontage.Title#getTextarea <em>Textarea</em>}</li>
  *   <li>{@link VideoMontage.Title#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link VideoMontage.Title#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getTitle()
@@ -67,5 +68,27 @@ public interface Title extends VideoElement {
 	 * @generated
 	 */
 	void setBackgroundColor(Color value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see VideoMontage.VideoMontagePackage#getTitle_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link VideoMontage.Title#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Title

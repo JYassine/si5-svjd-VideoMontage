@@ -9,8 +9,8 @@ Movie returns Movie:
 	'Movie' title=EString
 	'{'
 		  videoelement+=VideoElement (videoelement+=VideoElement)*  
-		  audioelement+=AudioElement (audioelement+=AudioElement)*
-		  (subtitle+=Subtitle) (subtitle+=Subtitle)*
+		  (audioelement+=AudioElement (audioelement+=AudioElement)*)?
+		  ((subtitle+=Subtitle) (subtitle+=Subtitle)*)?
 	'}';
 	
 
@@ -65,8 +65,8 @@ Clip returns Clip:
 	'Clip'
 	name=EString
 	'{'
-		('startCut' startCut=EString)?
-		('endCut' endCut=EString)?
+		('startCut' startCut=EDouble)?
+		('endCut' endCut=EDouble)?
 		('video'  video+=Video (video+=Video)* )?
 	'}';
 
@@ -77,7 +77,7 @@ Video returns Video:
 
 RelativeMoment returns RelativeMoment:
 	{RelativeMoment}
-	(moment=Moment)? 'of' 'element' element=[Element] operationMoment=OperationMoment (value=EDouble)?
+	(moment=Moment)? 'of'  element=[Element] (operationMoment=OperationMoment value=EDouble)?
 	
 ;
 
@@ -113,6 +113,7 @@ enum Moment returns Moment:
 
 Title returns Title:
 	'Title'
+	 name=EString
 	'{'
 		('duration' duration=EDouble)?
 		('backgroundColor' backgroundColor=Color)?

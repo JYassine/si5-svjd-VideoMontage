@@ -46,7 +46,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String START_CUT_EDEFAULT = null;
+	protected static final double START_CUT_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getStartCut() <em>Start Cut</em>}' attribute.
@@ -56,7 +56,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * @generated
 	 * @ordered
 	 */
-	protected String startCut = START_CUT_EDEFAULT;
+	protected double startCut = START_CUT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getEndCut() <em>End Cut</em>}' attribute.
@@ -66,7 +66,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String END_CUT_EDEFAULT = null;
+	protected static final double END_CUT_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getEndCut() <em>End Cut</em>}' attribute.
@@ -76,7 +76,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * @generated
 	 * @ordered
 	 */
-	protected String endCut = END_CUT_EDEFAULT;
+	protected double endCut = END_CUT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -132,7 +132,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getStartCut() {
+	public double getStartCut() {
 		return startCut;
 	}
 
@@ -141,8 +141,8 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartCut(String newStartCut) {
-		String oldStartCut = startCut;
+	public void setStartCut(double newStartCut) {
+		double oldStartCut = startCut;
 		startCut = newStartCut;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.CLIP__START_CUT, oldStartCut, startCut));
@@ -153,7 +153,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEndCut() {
+	public double getEndCut() {
 		return endCut;
 	}
 
@@ -162,8 +162,8 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndCut(String newEndCut) {
-		String oldEndCut = endCut;
+	public void setEndCut(double newEndCut) {
+		double oldEndCut = endCut;
 		endCut = newEndCut;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.CLIP__END_CUT, oldEndCut, endCut));
@@ -246,10 +246,10 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case VideoMontagePackage.CLIP__START_CUT:
-				setStartCut((String)newValue);
+				setStartCut((Double)newValue);
 				return;
 			case VideoMontagePackage.CLIP__END_CUT:
-				setEndCut((String)newValue);
+				setEndCut((Double)newValue);
 				return;
 			case VideoMontagePackage.CLIP__NAME:
 				setName((String)newValue);
@@ -295,9 +295,9 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case VideoMontagePackage.CLIP__START_CUT:
-				return START_CUT_EDEFAULT == null ? startCut != null : !START_CUT_EDEFAULT.equals(startCut);
+				return startCut != START_CUT_EDEFAULT;
 			case VideoMontagePackage.CLIP__END_CUT:
-				return END_CUT_EDEFAULT == null ? endCut != null : !END_CUT_EDEFAULT.equals(endCut);
+				return endCut != END_CUT_EDEFAULT;
 			case VideoMontagePackage.CLIP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case VideoMontagePackage.CLIP__VIDEO:

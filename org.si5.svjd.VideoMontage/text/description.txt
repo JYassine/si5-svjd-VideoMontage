@@ -27,10 +27,11 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
   Class Title -> VideoElement
     Reference textarea : TextArea<<1..1>>
     Attribute backgroundColor : Color
+    Attribute name : EString
 
   Class Clip -> VideoElement
-    Attribute startCut : EString
-    Attribute endCut : EString
+    Attribute startCut : EDouble
+    Attribute endCut : EDouble
     Attribute name : EString
     Reference video : Video<<0..*>>
 

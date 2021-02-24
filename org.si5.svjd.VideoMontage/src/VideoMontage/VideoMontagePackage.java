@@ -352,13 +352,22 @@ public interface VideoMontagePackage extends EPackage {
 	int TITLE__BACKGROUND_COLOR = VIDEO_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TITLE__NAME = VIDEO_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Title</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TITLE_FEATURE_COUNT = VIDEO_ELEMENT_FEATURE_COUNT + 2;
+	int TITLE_FEATURE_COUNT = VIDEO_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Title</em>' class.
@@ -1417,6 +1426,17 @@ public interface VideoMontagePackage extends EPackage {
 	EAttribute getTitle_BackgroundColor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link VideoMontage.Title#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see VideoMontage.Title#getName()
+	 * @see #getTitle()
+	 * @generated
+	 */
+	EAttribute getTitle_Name();
+
+	/**
 	 * Returns the meta object for class '{@link VideoMontage.Clip <em>Clip</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2107,6 +2127,14 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TITLE__BACKGROUND_COLOR = eINSTANCE.getTitle_BackgroundColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TITLE__NAME = eINSTANCE.getTitle_Name();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.ClipImpl <em>Clip</em>}' class.
