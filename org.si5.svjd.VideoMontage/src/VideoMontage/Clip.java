@@ -2,8 +2,6 @@
  */
 package VideoMontage;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Clip</b></em>'.
@@ -91,15 +89,25 @@ public interface Clip extends VideoElement {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Video</b></em>' reference list.
-	 * The list contents are of type {@link VideoMontage.Video}.
+	 * Returns the value of the '<em><b>Video</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Video</em>' reference list.
+	 * @return the value of the '<em>Video</em>' reference.
+	 * @see #setVideo(Video)
 	 * @see VideoMontage.VideoMontagePackage#getClip_Video()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Video> getVideo();
+	Video getVideo();
+
+	/**
+	 * Sets the value of the '{@link VideoMontage.Clip#getVideo <em>Video</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Video</em>' reference.
+	 * @see #getVideo()
+	 * @generated
+	 */
+	void setVideo(Video value);
 
 } // Clip

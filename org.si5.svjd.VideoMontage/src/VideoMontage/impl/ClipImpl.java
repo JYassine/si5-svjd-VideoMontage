@@ -5,15 +5,10 @@ package VideoMontage.impl;
 import VideoMontage.Clip;
 import VideoMontage.Video;
 import VideoMontage.VideoMontagePackage;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,14 +88,14 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference list.
+	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVideo()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Video> video;
+	protected Video video;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,11 +184,37 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Video> getVideo() {
-		if (video == null) {
-			video = new EObjectResolvingEList<Video>(Video.class, this, VideoMontagePackage.CLIP__VIDEO);
+	public Video getVideo() {
+		if (video != null && video.eIsProxy()) {
+			InternalEObject oldVideo = (InternalEObject)video;
+			video = (Video)eResolveProxy(oldVideo);
+			if (video != oldVideo) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VideoMontagePackage.CLIP__VIDEO, oldVideo, video));
+			}
 		}
 		return video;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Video basicGetVideo() {
+		return video;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVideo(Video newVideo) {
+		Video oldVideo = video;
+		video = newVideo;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.CLIP__VIDEO, oldVideo, video));
 	}
 
 	/**
@@ -211,7 +232,8 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 			case VideoMontagePackage.CLIP__NAME:
 				return getName();
 			case VideoMontagePackage.CLIP__VIDEO:
-				return getVideo();
+				if (resolve) return getVideo();
+				return basicGetVideo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,8 +257,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 				setName((String)newValue);
 				return;
 			case VideoMontagePackage.CLIP__VIDEO:
-				getVideo().clear();
-				getVideo().addAll((Collection<? extends Video>)newValue);
+				setVideo((Video)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -260,7 +281,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 				setName(NAME_EDEFAULT);
 				return;
 			case VideoMontagePackage.CLIP__VIDEO:
-				getVideo().clear();
+				setVideo((Video)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -281,7 +302,7 @@ public class ClipImpl extends VideoElementImpl implements Clip {
 			case VideoMontagePackage.CLIP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case VideoMontagePackage.CLIP__VIDEO:
-				return video != null && !video.isEmpty();
+				return video != null;
 		}
 		return super.eIsSet(featureID);
 	}

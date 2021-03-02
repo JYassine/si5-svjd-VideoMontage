@@ -12,6 +12,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import VideoMontage.Clip
+import VideoMontage.VideoTimeLine
 
 /**
  * Generates code from your model files on save.
@@ -30,13 +31,20 @@ class VideoMontageGenerator extends AbstractGenerator {
 	}
 	
 	def compile(Movie movie) '''
-	//Wiring code generated from an ArduinoML model
-	// Application name: «movie.title»
+	# Movie title: «movie.title»
 	from moviepy.editor import *
-	videoList = []
 	«FOR VideoElement videoelement : movie.videoelement»
 		«declare(videoelement)»
-	«ENDFOR»		
+	«ENDFOR»
+	
+	«declare(movie.videoTimeline)»
+	videoListAfterSetStart = []
+	timer = 0
+	for video in videoTimeLine :
+	    videoListAfterSetStart.append(video.set_start(timer))
+	    timer += video.duration
+	result = CompositeVideoClip(videoListAfterSetStart) # Overlay text on video
+	result.write_videofile("«movie.title».mp4",fps=25) # Many options...
 	'''
 	
 	def declare(VideoElement v) '''
@@ -45,22 +53,36 @@ class VideoMontageGenerator extends AbstractGenerator {
 				Clip: declare(v as Clip)
 				Title: declare(v as Title)
 			  }»
-		
-	
 	'''
 	
 	def declare(Video video) '''
-		videoList.append(VideoFileClip("«video.path»"))
+		video_«video.name» = VideoFileClip("«video.path»")
 	'''
 	
 	def declare(Clip clip) '''
-		videoList.append(VideoFileClip("«clip.video.get(0).path»"))
+		clip_«clip.name» = video_«clip.video.name».subclip(«clip.startCut»,«clip.endCut»)
 	'''
 	
 	def declare(Title title) '''
-		videoList.append(( TextClip("«title.textarea.text»",fontsize=70,color='white',bg_color='black')
+		title_«title.name»  =(TextClip("«title.textarea.text»",fontsize=70,color='white',bg_color='black')
 		             .set_position('center')
-		             .set_duration(10) ))
+		             .set_duration(10) )
 	'''
+	
+	def declare(VideoTimeLine v) '''
+		videoTimeLine = []
+		«FOR VideoElement videoelement : v.videos»
+			videoTimeLine.append(«getVarNameFromType(videoelement)»)
+		«ENDFOR»
+	'''
+	
+	def getVarNameFromType(VideoElement v)'''
+		«switch v {
+						Video: return 'video_'+v.name
+						Clip: return 'clip_'+v.name
+						Title: return 'title_'+v.name
+					  }»
+	'''
+	
 	
 }

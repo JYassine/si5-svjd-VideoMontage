@@ -74,6 +74,7 @@ public class VideoMontageFactoryImpl extends EFactoryImpl implements VideoMontag
 			case VideoMontagePackage.FADE_OUT: return createFadeOut();
 			case VideoMontagePackage.FONT: return createFont();
 			case VideoMontagePackage.TRANSITION: return createTransition();
+			case VideoMontagePackage.VIDEO_TIME_LINE: return createVideoTimeLine();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -289,6 +290,16 @@ public class VideoMontageFactoryImpl extends EFactoryImpl implements VideoMontag
 	public Transition createTransition() {
 		TransitionImpl transition = new TransitionImpl();
 		return transition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VideoTimeLine createVideoTimeLine() {
+		VideoTimeLineImpl videoTimeLine = new VideoTimeLineImpl();
+		return videoTimeLine;
 	}
 
 	/**

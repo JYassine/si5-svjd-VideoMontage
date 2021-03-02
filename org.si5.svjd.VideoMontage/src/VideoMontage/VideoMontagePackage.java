@@ -104,13 +104,22 @@ public interface VideoMontagePackage extends EPackage {
 	int MOVIE__SUBTITLE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Video Timeline</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVIE__VIDEO_TIMELINE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Movie</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVIE_FEATURE_COUNT = 4;
+	int MOVIE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Movie</em>' class.
@@ -434,7 +443,7 @@ public interface VideoMontagePackage extends EPackage {
 	int CLIP__NAME = VIDEO_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference list.
+	 * The feature id for the '<em><b>Video</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1221,6 +1230,43 @@ public interface VideoMontagePackage extends EPackage {
 	int TRANSITION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link VideoMontage.impl.VideoTimeLineImpl <em>Video Time Line</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see VideoMontage.impl.VideoTimeLineImpl
+	 * @see VideoMontage.impl.VideoMontagePackageImpl#getVideoTimeLine()
+	 * @generated
+	 */
+	int VIDEO_TIME_LINE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Videos</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_TIME_LINE__VIDEOS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Video Time Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_TIME_LINE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Video Time Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_TIME_LINE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link VideoMontage.Color <em>Color</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1228,7 +1274,7 @@ public interface VideoMontagePackage extends EPackage {
 	 * @see VideoMontage.impl.VideoMontagePackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 20;
+	int COLOR = 21;
 
 	/**
 	 * The meta object id for the '{@link VideoMontage.Moment <em>Moment</em>}' enum.
@@ -1238,7 +1284,7 @@ public interface VideoMontagePackage extends EPackage {
 	 * @see VideoMontage.impl.VideoMontagePackageImpl#getMoment()
 	 * @generated
 	 */
-	int MOMENT = 21;
+	int MOMENT = 22;
 
 
 	/**
@@ -1249,7 +1295,7 @@ public interface VideoMontagePackage extends EPackage {
 	 * @see VideoMontage.impl.VideoMontagePackageImpl#getFontStyle()
 	 * @generated
 	 */
-	int FONT_STYLE = 22;
+	int FONT_STYLE = 23;
 
 
 	/**
@@ -1260,7 +1306,7 @@ public interface VideoMontagePackage extends EPackage {
 	 * @see VideoMontage.impl.VideoMontagePackageImpl#getOperationMoment()
 	 * @generated
 	 */
-	int OPERATION_MOMENT = 23;
+	int OPERATION_MOMENT = 24;
 
 
 	/**
@@ -1316,6 +1362,17 @@ public interface VideoMontagePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMovie_Subtitle();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link VideoMontage.Movie#getVideoTimeline <em>Video Timeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Video Timeline</em>'.
+	 * @see VideoMontage.Movie#getVideoTimeline()
+	 * @see #getMovie()
+	 * @generated
+	 */
+	EReference getMovie_VideoTimeline();
 
 	/**
 	 * Returns the meta object for class '{@link VideoMontage.VideoElement <em>Video Element</em>}'.
@@ -1500,10 +1557,10 @@ public interface VideoMontagePackage extends EPackage {
 	EAttribute getClip_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link VideoMontage.Clip#getVideo <em>Video</em>}'.
+	 * Returns the meta object for the reference '{@link VideoMontage.Clip#getVideo <em>Video</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Video</em>'.
+	 * @return the meta object for the reference '<em>Video</em>'.
 	 * @see VideoMontage.Clip#getVideo()
 	 * @see #getClip()
 	 * @generated
@@ -1948,6 +2005,27 @@ public interface VideoMontagePackage extends EPackage {
 	EReference getTransition_Audioelement();
 
 	/**
+	 * Returns the meta object for class '{@link VideoMontage.VideoTimeLine <em>Video Time Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video Time Line</em>'.
+	 * @see VideoMontage.VideoTimeLine
+	 * @generated
+	 */
+	EClass getVideoTimeLine();
+
+	/**
+	 * Returns the meta object for the reference list '{@link VideoMontage.VideoTimeLine#getVideos <em>Videos</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Videos</em>'.
+	 * @see VideoMontage.VideoTimeLine#getVideos()
+	 * @see #getVideoTimeLine()
+	 * @generated
+	 */
+	EReference getVideoTimeLine_Videos();
+
+	/**
 	 * Returns the meta object for enum '{@link VideoMontage.Color <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2051,6 +2129,14 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MOVIE__SUBTITLE = eINSTANCE.getMovie_Subtitle();
+
+		/**
+		 * The meta object literal for the '<em><b>Video Timeline</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MOVIE__VIDEO_TIMELINE = eINSTANCE.getMovie_VideoTimeline();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.impl.VideoElementImpl <em>Video Element</em>}' class.
@@ -2199,7 +2285,7 @@ public interface VideoMontagePackage extends EPackage {
 		EAttribute CLIP__NAME = eINSTANCE.getClip_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Video</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Video</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2561,6 +2647,24 @@ public interface VideoMontagePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION__AUDIOELEMENT = eINSTANCE.getTransition_Audioelement();
+
+		/**
+		 * The meta object literal for the '{@link VideoMontage.impl.VideoTimeLineImpl <em>Video Time Line</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see VideoMontage.impl.VideoTimeLineImpl
+		 * @see VideoMontage.impl.VideoMontagePackageImpl#getVideoTimeLine()
+		 * @generated
+		 */
+		EClass VIDEO_TIME_LINE = eINSTANCE.getVideoTimeLine();
+
+		/**
+		 * The meta object literal for the '<em><b>Videos</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIDEO_TIME_LINE__VIDEOS = eINSTANCE.getVideoTimeLine_Videos();
 
 		/**
 		 * The meta object literal for the '{@link VideoMontage.Color <em>Color</em>}' enum.

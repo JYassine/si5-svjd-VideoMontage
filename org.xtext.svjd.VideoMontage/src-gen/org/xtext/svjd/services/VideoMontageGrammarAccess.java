@@ -47,13 +47,16 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final RuleCall cSubtitleSubtitleParserRuleCall_6_0_0 = (RuleCall)cSubtitleAssignment_6_0.eContents().get(0);
 		private final Assignment cSubtitleAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cSubtitleSubtitleParserRuleCall_6_1_0 = (RuleCall)cSubtitleAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cVideoTimelineAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cVideoTimelineVideoTimeLineParserRuleCall_7_0 = (RuleCall)cVideoTimelineAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Movie:
 		//	'Movie' title=EString
 		//	'{'
 		//	videoelement+=VideoElement videoelement+=VideoElement* (audioelement+=AudioElement audioelement+=AudioElement*)?
 		//	(subtitle+=Subtitlesubtitle+=Subtitle*)?
+		//	VideoTimeline=VideoTimeLine
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -61,6 +64,7 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'{'
 		//videoelement+=VideoElement videoelement+=VideoElement* (audioelement+=AudioElement audioelement+=AudioElement*)?
 		//(subtitle+=Subtitlesubtitle+=Subtitle*)?
+		//VideoTimeline=VideoTimeLine
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -118,8 +122,14 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//Subtitle
 		public RuleCall getSubtitleSubtitleParserRuleCall_6_1_0() { return cSubtitleSubtitleParserRuleCall_6_1_0; }
 		
+		//VideoTimeline=VideoTimeLine
+		public Assignment getVideoTimelineAssignment_7() { return cVideoTimelineAssignment_7; }
+		
+		//VideoTimeLine
+		public RuleCall getVideoTimelineVideoTimeLineParserRuleCall_7_0() { return cVideoTimelineVideoTimeLineParserRuleCall_7_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class AudioElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.svjd.VideoMontage.AudioElement");
@@ -178,6 +188,45 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		
 		//Video
 		public RuleCall getVideoParserRuleCall_1_2() { return cVideoParserRuleCall_1_2; }
+	}
+	public class VideoTimeLineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.svjd.VideoMontage.VideoTimeLine");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTimelineKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cVideosAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cVideosVideoElementCrossReference_1_0 = (CrossReference)cVideosAssignment_1.eContents().get(0);
+		private final RuleCall cVideosVideoElementIDTerminalRuleCall_1_0_1 = (RuleCall)cVideosVideoElementCrossReference_1_0.eContents().get(1);
+		private final Assignment cVideosAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cVideosVideoElementCrossReference_2_0 = (CrossReference)cVideosAssignment_2.eContents().get(0);
+		private final RuleCall cVideosVideoElementIDTerminalRuleCall_2_0_1 = (RuleCall)cVideosVideoElementCrossReference_2_0.eContents().get(1);
+		
+		//VideoTimeLine:
+		//	'timeline' videos+=[VideoElement] videos+=[VideoElement]*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'timeline' videos+=[VideoElement] videos+=[VideoElement]*
+		public Group getGroup() { return cGroup; }
+		
+		//'timeline'
+		public Keyword getTimelineKeyword_0() { return cTimelineKeyword_0; }
+		
+		//videos+=[VideoElement]
+		public Assignment getVideosAssignment_1() { return cVideosAssignment_1; }
+		
+		//[VideoElement]
+		public CrossReference getVideosVideoElementCrossReference_1_0() { return cVideosVideoElementCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getVideosVideoElementIDTerminalRuleCall_1_0_1() { return cVideosVideoElementIDTerminalRuleCall_1_0_1; }
+		
+		//videos+=[VideoElement]*
+		public Assignment getVideosAssignment_2() { return cVideosAssignment_2; }
+		
+		//[VideoElement]
+		public CrossReference getVideosVideoElementCrossReference_2_0() { return cVideosVideoElementCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getVideosVideoElementIDTerminalRuleCall_2_0_1() { return cVideosVideoElementIDTerminalRuleCall_2_0_1; }
 	}
 	public class TextAreaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.svjd.VideoMontage.TextArea");
@@ -589,14 +638,14 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//	'Clip'
 		//	name=EString
 		//	'{' ('startCut' startCut=EDouble)? ('endCut' endCut=EDouble)?
-		//	'video' video+=[Video]*
+		//	'video' video=[Video]
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Clip'
 		//name=EString
 		//'{' ('startCut' startCut=EDouble)? ('endCut' endCut=EDouble)?
-		//'video' video+=[Video]*
+		//'video' video=[Video]
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -639,7 +688,7 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//'video'
 		public Keyword getVideoKeyword_5() { return cVideoKeyword_5; }
 		
-		//video+=[Video]*
+		//video=[Video]
 		public Assignment getVideoAssignment_6() { return cVideoAssignment_6; }
 		
 		//[Video]
@@ -1569,6 +1618,7 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 	private final MovieElements pMovie;
 	private final AudioElementElements pAudioElement;
 	private final VideoElementElements pVideoElement;
+	private final VideoTimeLineElements pVideoTimeLine;
 	private final TextAreaElements pTextArea;
 	private final StartingMomentElements pStartingMoment;
 	private final AnimationElements pAnimation;
@@ -1607,6 +1657,7 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 		this.pMovie = new MovieElements();
 		this.pAudioElement = new AudioElementElements();
 		this.pVideoElement = new VideoElementElements();
+		this.pVideoTimeLine = new VideoTimeLineElements();
 		this.pTextArea = new TextAreaElements();
 		this.pStartingMoment = new StartingMomentElements();
 		this.pAnimation = new AnimationElements();
@@ -1666,6 +1717,7 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 	//	'{'
 	//	videoelement+=VideoElement videoelement+=VideoElement* (audioelement+=AudioElement audioelement+=AudioElement*)?
 	//	(subtitle+=Subtitlesubtitle+=Subtitle*)?
+	//	VideoTimeline=VideoTimeLine
 	//	'}';
 	public MovieElements getMovieAccess() {
 		return pMovie;
@@ -1693,6 +1745,16 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 	
 	public ParserRule getVideoElementRule() {
 		return getVideoElementAccess().getRule();
+	}
+	
+	//VideoTimeLine:
+	//	'timeline' videos+=[VideoElement] videos+=[VideoElement]*;
+	public VideoTimeLineElements getVideoTimeLineAccess() {
+		return pVideoTimeLine;
+	}
+	
+	public ParserRule getVideoTimeLineRule() {
+		return getVideoTimeLineAccess().getRule();
 	}
 	
 	//TextArea:
@@ -1781,7 +1843,7 @@ public class VideoMontageGrammarAccess extends AbstractElementFinder.AbstractGra
 	//	'Clip'
 	//	name=EString
 	//	'{' ('startCut' startCut=EDouble)? ('endCut' endCut=EDouble)?
-	//	'video' video+=[Video]*
+	//	'video' video=[Video]
 	//	'}';
 	public ClipElements getClipAccess() {
 		return pClip;

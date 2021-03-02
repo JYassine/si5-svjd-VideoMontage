@@ -29,6 +29,7 @@ import VideoMontage.VideoElement;
 import VideoMontage.VideoMontageFactory;
 import VideoMontage.VideoMontagePackage;
 
+import VideoMontage.VideoTimeLine;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -189,6 +190,13 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass videoTimeLineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum colorEEnum = null;
 
 	/**
@@ -316,6 +324,15 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 */
 	public EReference getMovie_Subtitle() {
 		return (EReference)movieEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMovie_VideoTimeline() {
+		return (EReference)movieEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -854,6 +871,24 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVideoTimeLine() {
+		return videoTimeLineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVideoTimeLine_Videos() {
+		return (EReference)videoTimeLineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getColor() {
 		return colorEEnum;
 	}
@@ -918,6 +953,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		createEReference(movieEClass, MOVIE__VIDEOELEMENT);
 		createEAttribute(movieEClass, MOVIE__TITLE);
 		createEReference(movieEClass, MOVIE__SUBTITLE);
+		createEReference(movieEClass, MOVIE__VIDEO_TIMELINE);
 
 		videoElementEClass = createEClass(VIDEO_ELEMENT);
 
@@ -997,6 +1033,9 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		createEAttribute(transitionEClass, TRANSITION__DURATION);
 		createEReference(transitionEClass, TRANSITION__AUDIOELEMENT);
 
+		videoTimeLineEClass = createEClass(VIDEO_TIME_LINE);
+		createEReference(videoTimeLineEClass, VIDEO_TIME_LINE__VIDEOS);
+
 		// Create enums
 		colorEEnum = createEEnum(COLOR);
 		momentEEnum = createEEnum(MOMENT);
@@ -1052,6 +1091,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEReference(getMovie_Videoelement(), this.getVideoElement(), null, "videoelement", null, 1, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMovie_Title(), ecorePackage.getEString(), "title", null, 0, 1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMovie_Subtitle(), this.getSubtitle(), null, "subtitle", null, 0, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMovie_VideoTimeline(), this.getVideoTimeLine(), null, "VideoTimeline", null, 1, 1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(videoElementEClass, VideoElement.class, "VideoElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1074,7 +1114,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEAttribute(getClip_StartCut(), ecorePackage.getEDouble(), "startCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClip_EndCut(), ecorePackage.getEDouble(), "endCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClip_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClip_Video(), this.getVideo(), null, "video", null, 0, -1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClip_Video(), this.getVideo(), null, "video", null, 1, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVideo_Path(), ecorePackage.getEString(), "path", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1130,6 +1170,9 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransition_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransition_Audioelement(), this.getAudioElement(), null, "audioelement", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(videoTimeLineEClass, VideoTimeLine.class, "VideoTimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVideoTimeLine_Videos(), this.getVideoElement(), null, "videos", null, 1, -1, VideoTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(colorEEnum, Color.class, "Color");
