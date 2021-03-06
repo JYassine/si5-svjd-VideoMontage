@@ -1,0 +1,89 @@
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font: 16px Helvetica, sans-serif;
+}
+
+a {
+  color: #22a;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.header {
+  display: block;
+  position: absolute;
+  background-color: #e8e8e8;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  padding: 10px;
+}
+
+.content {
+  display: block;
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  width: 640px;
+}
+
+#xtext-editor {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4px;
+  border: 1px solid #aaa;
+}
+
+.styled {
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.styled:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+html,
+body {
+  overflow-y: scroll;
+}
+
+.styled:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
