@@ -8,6 +8,7 @@ import VideoMontage.Subtitle;
 import VideoMontage.VideoElement;
 import VideoMontage.VideoMontagePackage;
 
+import VideoMontage.VideoTimeLine;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link VideoMontage.impl.MovieImpl#getVideoelement <em>Videoelement</em>}</li>
  *   <li>{@link VideoMontage.impl.MovieImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link VideoMontage.impl.MovieImpl#getSubtitle <em>Subtitle</em>}</li>
+ *   <li>{@link VideoMontage.impl.MovieImpl#getVideoTimeline <em>Video Timeline</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +92,16 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * @ordered
 	 */
 	protected EList<Subtitle> subtitle;
+
+	/**
+	 * The cached value of the '{@link #getVideoTimeline() <em>Video Timeline</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVideoTimeline()
+	 * @generated
+	 * @ordered
+	 */
+	protected VideoTimeLine videoTimeline;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,6 +184,49 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VideoTimeLine getVideoTimeline() {
+		return videoTimeline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVideoTimeline(VideoTimeLine newVideoTimeline, NotificationChain msgs) {
+		VideoTimeLine oldVideoTimeline = videoTimeline;
+		videoTimeline = newVideoTimeline;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VideoMontagePackage.MOVIE__VIDEO_TIMELINE, oldVideoTimeline, newVideoTimeline);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVideoTimeline(VideoTimeLine newVideoTimeline) {
+		if (newVideoTimeline != videoTimeline) {
+			NotificationChain msgs = null;
+			if (videoTimeline != null)
+				msgs = ((InternalEObject)videoTimeline).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VideoMontagePackage.MOVIE__VIDEO_TIMELINE, null, msgs);
+			if (newVideoTimeline != null)
+				msgs = ((InternalEObject)newVideoTimeline).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VideoMontagePackage.MOVIE__VIDEO_TIMELINE, null, msgs);
+			msgs = basicSetVideoTimeline(newVideoTimeline, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.MOVIE__VIDEO_TIMELINE, newVideoTimeline, newVideoTimeline));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -181,6 +236,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 				return ((InternalEList<?>)getVideoelement()).basicRemove(otherEnd, msgs);
 			case VideoMontagePackage.MOVIE__SUBTITLE:
 				return ((InternalEList<?>)getSubtitle()).basicRemove(otherEnd, msgs);
+			case VideoMontagePackage.MOVIE__VIDEO_TIMELINE:
+				return basicSetVideoTimeline(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -201,6 +258,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 				return getTitle();
 			case VideoMontagePackage.MOVIE__SUBTITLE:
 				return getSubtitle();
+			case VideoMontagePackage.MOVIE__VIDEO_TIMELINE:
+				return getVideoTimeline();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +288,9 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 				getSubtitle().clear();
 				getSubtitle().addAll((Collection<? extends Subtitle>)newValue);
 				return;
+			case VideoMontagePackage.MOVIE__VIDEO_TIMELINE:
+				setVideoTimeline((VideoTimeLine)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -253,6 +315,9 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 			case VideoMontagePackage.MOVIE__SUBTITLE:
 				getSubtitle().clear();
 				return;
+			case VideoMontagePackage.MOVIE__VIDEO_TIMELINE:
+				setVideoTimeline((VideoTimeLine)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -273,6 +338,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case VideoMontagePackage.MOVIE__SUBTITLE:
 				return subtitle != null && !subtitle.isEmpty();
+			case VideoMontagePackage.MOVIE__VIDEO_TIMELINE:
+				return videoTimeline != null;
 		}
 		return super.eIsSet(featureID);
 	}

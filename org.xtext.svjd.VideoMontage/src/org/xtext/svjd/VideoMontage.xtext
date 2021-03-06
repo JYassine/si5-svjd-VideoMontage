@@ -11,6 +11,7 @@ Movie returns Movie:
 		  videoelement+=VideoElement (videoelement+=VideoElement)*  
 		  (audioelement+=AudioElement (audioelement+=AudioElement)*)?
 		  ((subtitle+=Subtitle) (subtitle+=Subtitle)*)?
+		  VideoTimeline=VideoTimeLine
 	'}';
 	
 
@@ -20,6 +21,9 @@ AudioElement returns AudioElement:
 VideoElement returns VideoElement:
 	'videoElement' (Title | Clip | Video);
 
+VideoTimeLine returns VideoTimeLine:
+	'timeline' videos+=[VideoElement] (videos+=[VideoElement])*
+;
 
 
 TextArea returns TextArea:
@@ -68,7 +72,7 @@ Clip returns Clip:
 	'{'
 		('startCut' startCut=EDouble)?
 		('endCut' endCut=EDouble)?
-		'video'  (video+=[Video])* 
+		'video'  video=[Video] 
 	'}';
 
 Title returns Title:

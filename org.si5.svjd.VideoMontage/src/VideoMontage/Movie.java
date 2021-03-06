@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link VideoMontage.Movie#getVideoelement <em>Videoelement</em>}</li>
  *   <li>{@link VideoMontage.Movie#getTitle <em>Title</em>}</li>
  *   <li>{@link VideoMontage.Movie#getSubtitle <em>Subtitle</em>}</li>
+ *   <li>{@link VideoMontage.Movie#getVideoTimeline <em>Video Timeline</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getMovie()
@@ -83,5 +84,27 @@ public interface Movie extends EObject {
 	 * @generated
 	 */
 	EList<Subtitle> getSubtitle();
+
+	/**
+	 * Returns the value of the '<em><b>Video Timeline</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Video Timeline</em>' containment reference.
+	 * @see #setVideoTimeline(VideoTimeLine)
+	 * @see VideoMontage.VideoMontagePackage#getMovie_VideoTimeline()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	VideoTimeLine getVideoTimeline();
+
+	/**
+	 * Sets the value of the '{@link VideoMontage.Movie#getVideoTimeline <em>Video Timeline</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Video Timeline</em>' containment reference.
+	 * @see #getVideoTimeline()
+	 * @generated
+	 */
+	void setVideoTimeline(VideoTimeLine value);
 
 } // Movie
