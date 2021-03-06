@@ -1,0 +1,39 @@
+ Movie extension2 {
+ 	
+ videoElement Title intro {
+        duration 10.0
+        backgroundColor BLACK
+        textArea TextArea {
+            x 10
+            y 10
+            text "Introduction !"
+            animation FadeIn { duration 10.0}
+        }
+    }
+    
+    videoElement clip1 path "clip1.mp4"
+    
+    
+    videoElement Clip clip1a{
+        startCut 23.0
+        endCut 107.0
+        video clip1
+    } 
+    
+    videoElement Clip clip1b{
+        startCut 121.0
+        endCut 141.0
+        video clip1
+    } 
+    
+    videoElement Title title1{
+        duration 10.0
+        backgroundColor BLACK
+        textArea TextArea {
+            text "Thanks !"
+        }
+    } 
+ 	
+ 	timeline intro clip1a clip1b title1
+ 	
+ }

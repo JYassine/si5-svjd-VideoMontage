@@ -1,0 +1,4 @@
+include 'org.xtext.svjd.VideoMontageSVJD'
+include 'org.xtext.svjd.VideoMontageSVJD.ide'
+include 'org.xtext.svjd.VideoMontageSVJD.web'
+include 'org.xtext.svjd.VideoMontageSVJD.tests'

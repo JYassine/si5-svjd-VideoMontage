@@ -1,0 +1,27 @@
+Movie scenario1{
+    
+    videoElement Title firstTitle {
+        duration 9.0
+        backgroundColor BLACK
+        textArea TextArea {
+            x 10
+            y 10
+            text "We were at Nice last summer, it was great :)"
+        }
+    }
+    videoElement video1 path "media/chaplin.mp4"   
+    videoElement video2 path "media/chaplin.mp4"
+    
+    videoElement Title secondTitle {
+        duration 10.0
+        backgroundColor BLACK
+        textArea TextArea {
+            x 10 
+            y 10
+            text "Thank you very much ! "
+        }
+    }
+   
+    timeline firstTitle video1 video2 secondTitle 
+ 
+}  

@@ -1,0 +1,42 @@
+Movie extension1{
+    
+    videoElement clip1 path "clip1.mp4"
+    
+    videoElement Clip clip1a{
+        startCut 23.0
+        endCut 107.0
+        video clip1
+    } 
+    
+    videoElement Clip clip1b{
+        startCut 121.0
+        endCut 141.0
+        video clip1
+    } 
+    
+    audioElement Audio audio1 {
+        path "audio1.mp3"
+    }
+    
+     audioElement Audio audio2 {
+        path "audio2.mp3"
+    }
+    
+    audioElement AudioClip audioClip1 start : starting of clip1 {
+        volume 20.0
+        startCut 20.0
+        endCut 30.0
+        audio audio1
+    }
+    
+     audioElement AudioClip audioClip2 start : ending of audioClip1 {
+        volume 20.0
+        startCut 20.0
+        endCut 30.0
+        audio audio2
+    }
+    
+    
+    timeline clip1a clip1b
+    
+}

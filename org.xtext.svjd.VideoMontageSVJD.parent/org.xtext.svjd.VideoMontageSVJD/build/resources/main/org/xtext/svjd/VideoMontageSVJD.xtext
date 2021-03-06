@@ -1,0 +1,192 @@
+grammar org.xtext.svjd.VideoMontageSVJD with org.eclipse.xtext.common.Terminals
+
+generate videoMontageSVJD "http://www.xtext.org/svjd/VideoMontageSVJD"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
+Movie returns Movie:
+	'Movie' title=EString
+	'{'
+		  videoelement+=VideoElement (videoelement+=VideoElement)*  
+		  (audioelement+=AudioElement (audioelement+=AudioElement)*)?
+		  ((subtitle+=Subtitle) (subtitle+=Subtitle)*)?
+		  VideoTimeline=VideoTimeLine
+	'}';
+	
+Element returns Element:
+	AudioElement | VideoElement | Subtitle
+;
+
+AudioElement returns AudioElement:
+	'audioElement' (Audio | AudioClip);
+
+VideoElement returns VideoElement:
+	'videoElement' (Title | Clip | Video);
+
+VideoTimeLine returns VideoTimeLine:
+	'timeline' videos+=[VideoElement] (videos+=[VideoElement])*
+;
+
+
+TextArea returns TextArea:
+	TextArea_Impl | TextAreaDynamic;
+
+StartingMoment returns StartingMoment:
+	StartingMoment_Impl | RelativeMoment | AbsoluteMoment;
+
+
+Animation returns Animation:
+	FadeIn | FadeOut;
+
+EString returns ecore::EString:
+	STRING | ID;
+
+Subtitle returns Subtitle:
+	'Subtitle'
+	name=EString 'start' ':' startingmoment=StartingMoment
+	'{'
+		('duration' duration=EDouble)?
+		'textArea' textarea=TextArea
+	'}';
+	
+Audio returns Audio:
+	'Audio' 
+	name=EString 'start' ':' startingmoment=StartingMoment
+	'{'
+		('path' path=EString)? 
+		('transition' transition=Transition)?
+	'}';
+	
+AudioClip returns AudioClip:
+	'AudioClip' 
+	name=EString 'start' ':' startingmoment=StartingMoment
+	'{'
+		('volume' volume=EDouble)?
+		('startCut' startCut=EDouble)
+		('endCut' endCut=EDouble)
+		('transition' transition=Transition)?
+		'audio' (audio+=[Audio])* 
+	'}';
+	
+Clip returns Clip:
+	'Clip'
+	name=EString
+	'{'
+		('startCut' startCut=EDouble)?
+		('endCut' endCut=EDouble)?
+		'video'  video=[Video] 
+	'}';
+
+Title returns Title:
+	'Title'
+	 name=EString
+	'{'
+		('duration' duration=EDouble)?
+		('backgroundColor' backgroundColor=Color)?
+		'textArea' textarea=TextArea
+	'}';
+
+Video returns Video:
+	name=EString ('path' path=EString)
+;
+
+
+RelativeMoment returns RelativeMoment:
+	{RelativeMoment}
+	(moment=Moment)? 'of'  element=[Element] (operationMoment=OperationMoment value=EDouble)?
+	
+;
+
+enum OperationMoment returns OperationMoment :
+	Addition = '+' |
+	Soustraction = "-"
+;
+	
+AbsoluteMoment returns AbsoluteMoment:
+	{AbsoluteMoment}
+	('time' time=EDouble)?
+	
+;
+
+
+StartingMoment_Impl returns StartingMoment:
+	{StartingMoment}
+	'StartingMoment'
+	;
+
+
+Transition returns Transition:
+	'Transition'
+	'{'
+		('duration' duration=EDouble)?
+		'audioElement' audioelement=AudioElement
+	'}';
+
+
+enum Moment returns Moment:
+				starting = 'starting' | ending = 'ending';
+
+
+
+TextArea_Impl returns TextArea:
+	'TextArea'
+	'{'
+		('x' x=EInt)?
+		('y' y=EInt)?
+		('width' width=EDouble)?
+		('height' height=EDouble)?
+		('text' text=EString)
+		('font' font=[Font])?
+		('animation'  animation+=Animation (animation+=Animation)* )?
+	'}';
+
+enum Color returns Color:
+				BLACK = 'BLACK';
+
+
+Font returns Font:
+	{Font}
+	 fontStyle=FontStyle
+	 ('length' length=EString);
+	 
+enum FontStyle returns FontStyle:
+	
+	COMIC_SANS_MS = 'COMIC_SANS_MS'
+;
+
+TextAreaDynamic returns TextAreaDynamic:
+	'TextAreaDynamic'
+	'{'
+		('x' x=EInt)?
+		('y' y=EInt)?
+		('width' width=EDouble)?
+		('height' height=EDouble)?
+		('text' text=EString)?
+		('textSrc' textSrc=EString)?
+		('line' line=EInt)?
+		'font' font=[Font|EString]
+		('animation' animation+=Animation ( animation+=Animation)*)?
+	'}';
+
+FadeIn returns FadeIn:
+	{FadeIn}
+	'FadeIn'
+	'{'
+		('duration' duration=EDouble)?
+	'}';
+
+FadeOut returns FadeOut:
+	{FadeOut}
+	'FadeOut'
+	'{'
+		('duration' duration=EDouble)?
+	'}';
+
+
+EDouble returns ecore::EDouble:
+	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
+
+
+EInt returns ecore::EInt:
+	'-'? INT;
