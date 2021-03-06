@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link VideoMontage.TextArea#getWidth <em>Width</em>}</li>
  *   <li>{@link VideoMontage.TextArea#getHeight <em>Height</em>}</li>
  *   <li>{@link VideoMontage.TextArea#getText <em>Text</em>}</li>
- *   <li>{@link VideoMontage.TextArea#getFont <em>Font</em>}</li>
  *   <li>{@link VideoMontage.TextArea#getAnimation <em>Animation</em>}</li>
+ *   <li>{@link VideoMontage.TextArea#getFont <em>Font</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getTextArea()
@@ -146,7 +146,7 @@ public interface TextArea extends EObject {
 	 * @return the value of the '<em>Font</em>' reference.
 	 * @see #setFont(Font)
 	 * @see VideoMontage.VideoMontagePackage#getTextArea_Font()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Font getFont();

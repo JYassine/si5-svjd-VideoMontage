@@ -8,10 +8,10 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 Package VideoMontage <fr.uns.polytech.al.VideoMontage>
 
   Class Movie
-    Reference audioelement : AudioElement<<1..*>>
+    Reference audioelement : AudioElement<<0..*>>
     Reference videoelement : VideoElement<<1..*>>
     Attribute title : EString
-    Reference subtitle : Subtitle<<1..*>>
+    Reference subtitle : Subtitle<<0..*>>
 
   Class VideoElement -> Element
 
@@ -23,25 +23,25 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
   Class Subtitle -> Element
     Reference textarea : TextArea<<1..1>>
     Reference startingmoment : StartingMoment<<1..1>>
+    Attribute name : EString
 
   Class Title -> VideoElement
     Reference textarea : TextArea<<1..1>>
     Attribute backgroundColor : Color
+    Attribute name : EString
 
   Class Clip -> VideoElement
-    Attribute startCut : EString
-    Attribute endCut : EString
+    Attribute startCut : EDouble
+    Attribute endCut : EDouble
     Attribute name : EString
     Reference video : Video<<0..*>>
 
   Class Video -> VideoElement
     Attribute path : EString
     Attribute name : EString
-    Reference clip : Clip<<1..1>>
 
   Class Audio -> AudioElement
     Attribute path : EString
-    Reference audioclip : AudioClip<<1..1>>
 
   Class AudioClip -> AudioElement
     Attribute volume : EDouble
@@ -53,11 +53,12 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
 
   Class Element
     Attribute duration : EDouble
-    Reference relativemoment : RelativeMoment<<1..*>>
 
   Class RelativeMoment -> StartingMoment
     Attribute moment : Moment
     Attribute value : EDouble
+    Reference element : Element
+    Attribute operationMoment : OperationMoment
 
   Class AbsoluteMoment -> StartingMoment
     Attribute time : EDouble
@@ -68,8 +69,8 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
     Attribute width : EDouble
     Attribute height : EDouble
     Attribute text : EString
-    Reference font : Font<<1..1>>
     Reference animation : Animation<<0..*>>
+    Reference font : Font
 
   Class Animation
     Attribute duration : EDouble
@@ -83,8 +84,8 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
   Class FadeOut -> Animation
 
   Class Font
-    Attribute name : EString
     Attribute length : EString
+    Attribute fontStyle : FontStyle
 
   Class Transition
     Attribute duration : EDouble
@@ -96,3 +97,10 @@ Package VideoMontage <fr.uns.polytech.al.VideoMontage>
   Enum Moment
     Literal starting = 0
     Literal ending = 1
+
+  Enum FontStyle
+    Literal COMIC_SANS_MS = 0
+
+  Enum OperationMoment
+    Literal Addition = 0
+    Literal Soustraction = 0

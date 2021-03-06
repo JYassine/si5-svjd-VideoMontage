@@ -2,13 +2,13 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="VideoMontage" nsURI="fr.uns.polytech.al.VideoMontage" nsPrefix="VideoMontage">
   <eClassifiers xsi:type="ecore:EClass" name="Movie">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="audioelement" lowerBound="1"
-        upperBound="-1" eType="#//AudioElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="audioelement" upperBound="-1"
+        eType="#//AudioElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="videoelement" lowerBound="1"
         upperBound="-1" eType="#//VideoElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subtitle" lowerBound="1"
-        upperBound="-1" eType="#//Subtitle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subtitle" upperBound="-1"
+        eType="#//Subtitle" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VideoElement" abstract="true" eSuperTypes="#//Element"/>
   <eClassifiers xsi:type="ecore:EClass" name="AudioElement" abstract="true" eSuperTypes="#//Element">
@@ -23,46 +23,44 @@
         eType="#//TextArea" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startingmoment" lowerBound="1"
         eType="#//StartingMoment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Title" eSuperTypes="#//VideoElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="textarea" lowerBound="1"
         eType="#//TextArea" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Clip" eSuperTypes="#//VideoElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endCut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endCut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="video" upperBound="-1"
-        eType="#//Video" containment="true"/>
+        eType="#//Video"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//VideoElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="clip" lowerBound="1" eType="#//Clip"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Audio" eSuperTypes="#//AudioElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="audioclip" lowerBound="1"
-        eType="#//AudioClip" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AudioClip" eSuperTypes="#//AudioElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="volume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endCut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="audio" upperBound="-1"
-        eType="#//Audio" containment="true"/>
+        eType="#//Audio"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StartingMoment"/>
   <eClassifiers xsi:type="ecore:EClass" name="Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relativemoment" lowerBound="1"
-        upperBound="-1" eType="#//RelativeMoment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RelativeMoment" eSuperTypes="#//StartingMoment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="moment" eType="#//Moment"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationMoment" eType="#//OperationMoment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbsoluteMoment" eSuperTypes="#//StartingMoment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -73,9 +71,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="font" lowerBound="1" eType="#//Font"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="animation" upperBound="-1"
         eType="#//Animation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="font" eType="#//Font"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Animation" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -94,12 +92,19 @@
     <eLiterals name="ending" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Font">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontStyle" eType="#//FontStyle"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="audioelement" lowerBound="1"
         eType="#//AudioElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FontStyle">
+    <eLiterals name="COMIC_SANS_MS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationMoment">
+    <eLiterals name="Addition"/>
+    <eLiterals name="Soustraction"/>
   </eClassifiers>
 </ecore:EPackage>

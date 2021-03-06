@@ -2,16 +2,11 @@
  */
 package VideoMontage.impl;
 
-import VideoMontage.Clip;
 import VideoMontage.Video;
 import VideoMontage.VideoMontagePackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -24,7 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link VideoMontage.impl.VideoImpl#getPath <em>Path</em>}</li>
  *   <li>{@link VideoMontage.impl.VideoImpl#getName <em>Name</em>}</li>
- *   <li>{@link VideoMontage.impl.VideoImpl#getClip <em>Clip</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,16 +63,6 @@ public class VideoImpl extends VideoElementImpl implements Video {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getClip() <em>Clip</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClip()
-	 * @generated
-	 * @ordered
-	 */
-	protected Clip clip;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,63 +130,6 @@ public class VideoImpl extends VideoElementImpl implements Video {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Clip getClip() {
-		return clip;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetClip(Clip newClip, NotificationChain msgs) {
-		Clip oldClip = clip;
-		clip = newClip;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VideoMontagePackage.VIDEO__CLIP, oldClip, newClip);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClip(Clip newClip) {
-		if (newClip != clip) {
-			NotificationChain msgs = null;
-			if (clip != null)
-				msgs = ((InternalEObject)clip).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VideoMontagePackage.VIDEO__CLIP, null, msgs);
-			if (newClip != null)
-				msgs = ((InternalEObject)newClip).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VideoMontagePackage.VIDEO__CLIP, null, msgs);
-			msgs = basicSetClip(newClip, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.VIDEO__CLIP, newClip, newClip));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case VideoMontagePackage.VIDEO__CLIP:
-				return basicSetClip(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -210,8 +137,6 @@ public class VideoImpl extends VideoElementImpl implements Video {
 				return getPath();
 			case VideoMontagePackage.VIDEO__NAME:
 				return getName();
-			case VideoMontagePackage.VIDEO__CLIP:
-				return getClip();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,9 +154,6 @@ public class VideoImpl extends VideoElementImpl implements Video {
 				return;
 			case VideoMontagePackage.VIDEO__NAME:
 				setName((String)newValue);
-				return;
-			case VideoMontagePackage.VIDEO__CLIP:
-				setClip((Clip)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,9 +173,6 @@ public class VideoImpl extends VideoElementImpl implements Video {
 			case VideoMontagePackage.VIDEO__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case VideoMontagePackage.VIDEO__CLIP:
-				setClip((Clip)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -270,8 +189,6 @@ public class VideoImpl extends VideoElementImpl implements Video {
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 			case VideoMontagePackage.VIDEO__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case VideoMontagePackage.VIDEO__CLIP:
-				return clip != null;
 		}
 		return super.eIsSet(featureID);
 	}

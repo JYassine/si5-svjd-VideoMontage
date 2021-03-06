@@ -28,7 +28,9 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.svjd.services.VideoMontageGrammarAccess;
 
 @SuppressWarnings("all")
@@ -119,15 +121,12 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         duration=EDouble? 
-	 *         volume=EDouble? 
-	 *         startCut=EDouble? 
-	 *         endCut=EDouble? 
-	 *         relativemoment+=RelativeMoment 
-	 *         relativemoment+=RelativeMoment* 
-	 *         transition=Transition? 
 	 *         startingmoment=StartingMoment 
-	 *         (audio+=Audio audio+=Audio*)?
+	 *         volume=EDouble? 
+	 *         startCut=EDouble 
+	 *         endCut=EDouble 
+	 *         transition=Transition? 
+	 *         audio+=[Audio|ID]*
 	 *     )
 	 */
 	protected void sequence_AudioClip(ISerializationContext context, AudioClip semanticObject) {
@@ -141,16 +140,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Audio returns Audio
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         duration=EDouble? 
-	 *         path=EString? 
-	 *         relativemoment+=RelativeMoment 
-	 *         relativemoment+=RelativeMoment* 
-	 *         transition=Transition? 
-	 *         startingmoment=StartingMoment 
-	 *         audioclip=AudioClip
-	 *     )
+	 *     (name=EString startingmoment=StartingMoment path=EString? transition=Transition?)
 	 */
 	protected void sequence_Audio(ISerializationContext context, Audio semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -163,15 +153,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Clip returns Clip
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         duration=EDouble? 
-	 *         startCut=EString? 
-	 *         endCut=EString? 
-	 *         relativemoment+=RelativeMoment 
-	 *         relativemoment+=RelativeMoment* 
-	 *         (video+=Video video+=Video*)?
-	 *     )
+	 *     (name=EString startCut=EDouble? endCut=EDouble? video+=[Video|ID]*)
 	 */
 	protected void sequence_Clip(ISerializationContext context, Clip semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -209,10 +191,19 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Font returns Font
 	 *
 	 * Constraint:
-	 *     (name=EString length=EString?)
+	 *     (fontStyle=FontStyle length=EString)
 	 */
 	protected void sequence_Font(ISerializationContext context, Font semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VideoMontagePackage.Literals.FONT__FONT_STYLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoMontagePackage.Literals.FONT__FONT_STYLE));
+			if (transientValues.isValueTransient(semanticObject, VideoMontagePackage.Literals.FONT__LENGTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoMontagePackage.Literals.FONT__LENGTH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFontAccess().getFontStyleFontStyleEnumRuleCall_1_0(), semanticObject.getFontStyle());
+		feeder.accept(grammarAccess.getFontAccess().getLengthEStringParserRuleCall_2_1_0(), semanticObject.getLength());
+		feeder.finish();
 	}
 	
 	
@@ -222,13 +213,11 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         audioelement+=AudioElement 
-	 *         audioelement+=AudioElement* 
+	 *         title=EString 
 	 *         videoelement+=VideoElement 
 	 *         videoelement+=VideoElement* 
-	 *         subtitle+=Subtitle 
-	 *         subtitle+=Subtitle*
+	 *         (audioelement+=AudioElement audioelement+=AudioElement*)? 
+	 *         (subtitle+=Subtitle subtitle+=Subtitle*)?
 	 *     )
 	 */
 	protected void sequence_Movie(ISerializationContext context, Movie semanticObject) {
@@ -242,7 +231,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     RelativeMoment returns RelativeMoment
 	 *
 	 * Constraint:
-	 *     (moment=Moment? value=EDouble?)
+	 *     (moment=Moment? element=[Element|ID] (operationMoment=OperationMoment value=EDouble)?)
 	 */
 	protected void sequence_RelativeMoment(ISerializationContext context, RelativeMoment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -267,7 +256,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Subtitle returns Subtitle
 	 *
 	 * Constraint:
-	 *     (duration=EDouble? relativemoment+=RelativeMoment relativemoment+=RelativeMoment* textarea=TextArea startingmoment=StartingMoment)
+	 *     (name=EString startingmoment=StartingMoment duration=EDouble? textarea=TextArea)
 	 */
 	protected void sequence_Subtitle(ISerializationContext context, Subtitle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -308,8 +297,8 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *         y=EInt? 
 	 *         width=EDouble? 
 	 *         height=EDouble? 
-	 *         text=EString? 
-	 *         font=[Font|EString] 
+	 *         text=EString 
+	 *         font=[Font|ID]? 
 	 *         (animation+=Animation animation+=Animation*)?
 	 *     )
 	 */
@@ -324,7 +313,7 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Title returns Title
 	 *
 	 * Constraint:
-	 *     (duration=EDouble? backgroundColor=Color? relativemoment+=RelativeMoment relativemoment+=RelativeMoment* textarea=TextArea)
+	 *     (name=EString duration=EDouble? backgroundColor=Color? textarea=TextArea)
 	 */
 	protected void sequence_Title(ISerializationContext context, Title semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -349,17 +338,19 @@ public class VideoMontageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Video returns Video
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         duration=EDouble? 
-	 *         path=EString? 
-	 *         relativemoment+=RelativeMoment 
-	 *         relativemoment+=RelativeMoment* 
-	 *         clip=Clip
-	 *     )
+	 *     (name=EString path=EString)
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VideoMontagePackage.Literals.VIDEO__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoMontagePackage.Literals.VIDEO__NAME));
+			if (transientValues.isValueTransient(semanticObject, VideoMontagePackage.Literals.VIDEO__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoMontagePackage.Literals.VIDEO__PATH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVideoAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVideoAccess().getPathEStringParserRuleCall_1_1_0(), semanticObject.getPath());
+		feeder.finish();
 	}
 	
 	

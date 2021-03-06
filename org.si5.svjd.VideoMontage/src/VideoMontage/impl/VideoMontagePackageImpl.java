@@ -13,8 +13,10 @@ import VideoMontage.Element;
 import VideoMontage.FadeIn;
 import VideoMontage.FadeOut;
 import VideoMontage.Font;
+import VideoMontage.FontStyle;
 import VideoMontage.Moment;
 import VideoMontage.Movie;
+import VideoMontage.OperationMoment;
 import VideoMontage.RelativeMoment;
 import VideoMontage.StartingMoment;
 import VideoMontage.Subtitle;
@@ -195,6 +197,20 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * @generated
 	 */
 	private EEnum momentEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum fontStyleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operationMomentEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -379,6 +395,15 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSubtitle_Name() {
+		return (EAttribute)subtitleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTitle() {
 		return titleEClass;
 	}
@@ -399,6 +424,15 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 */
 	public EAttribute getTitle_BackgroundColor() {
 		return (EAttribute)titleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTitle_Name() {
+		return (EAttribute)titleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -478,15 +512,6 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVideo_Clip() {
-		return (EReference)videoEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAudio() {
 		return audioEClass;
 	}
@@ -498,15 +523,6 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 */
 	public EAttribute getAudio_Path() {
 		return (EAttribute)audioEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAudio_Audioclip() {
-		return (EReference)audioEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -586,15 +602,6 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElement_Relativemoment() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRelativeMoment() {
 		return relativeMomentEClass;
 	}
@@ -615,6 +622,24 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 */
 	public EAttribute getRelativeMoment_Value() {
 		return (EAttribute)relativeMomentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelativeMoment_Element() {
+		return (EReference)relativeMomentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRelativeMoment_OperationMoment() {
+		return (EAttribute)relativeMomentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -695,7 +720,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * @generated
 	 */
 	public EReference getTextArea_Font() {
-		return (EReference)textAreaEClass.getEStructuralFeatures().get(5);
+		return (EReference)textAreaEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -704,7 +729,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * @generated
 	 */
 	public EReference getTextArea_Animation() {
-		return (EReference)textAreaEClass.getEStructuralFeatures().get(6);
+		return (EReference)textAreaEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -784,7 +809,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFont_Name() {
+	public EAttribute getFont_Length() {
 		return (EAttribute)fontEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -793,7 +818,7 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFont_Length() {
+	public EAttribute getFont_FontStyle() {
 		return (EAttribute)fontEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -847,6 +872,24 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getFontStyle() {
+		return fontStyleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOperationMoment() {
+		return operationMomentEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VideoMontageFactory getVideoMontageFactory() {
 		return (VideoMontageFactory)getEFactoryInstance();
 	}
@@ -886,10 +929,12 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		subtitleEClass = createEClass(SUBTITLE);
 		createEReference(subtitleEClass, SUBTITLE__TEXTAREA);
 		createEReference(subtitleEClass, SUBTITLE__STARTINGMOMENT);
+		createEAttribute(subtitleEClass, SUBTITLE__NAME);
 
 		titleEClass = createEClass(TITLE);
 		createEReference(titleEClass, TITLE__TEXTAREA);
 		createEAttribute(titleEClass, TITLE__BACKGROUND_COLOR);
+		createEAttribute(titleEClass, TITLE__NAME);
 
 		clipEClass = createEClass(CLIP);
 		createEAttribute(clipEClass, CLIP__START_CUT);
@@ -900,11 +945,9 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		videoEClass = createEClass(VIDEO);
 		createEAttribute(videoEClass, VIDEO__PATH);
 		createEAttribute(videoEClass, VIDEO__NAME);
-		createEReference(videoEClass, VIDEO__CLIP);
 
 		audioEClass = createEClass(AUDIO);
 		createEAttribute(audioEClass, AUDIO__PATH);
-		createEReference(audioEClass, AUDIO__AUDIOCLIP);
 
 		audioClipEClass = createEClass(AUDIO_CLIP);
 		createEAttribute(audioClipEClass, AUDIO_CLIP__VOLUME);
@@ -916,11 +959,12 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__DURATION);
-		createEReference(elementEClass, ELEMENT__RELATIVEMOMENT);
 
 		relativeMomentEClass = createEClass(RELATIVE_MOMENT);
 		createEAttribute(relativeMomentEClass, RELATIVE_MOMENT__MOMENT);
 		createEAttribute(relativeMomentEClass, RELATIVE_MOMENT__VALUE);
+		createEReference(relativeMomentEClass, RELATIVE_MOMENT__ELEMENT);
+		createEAttribute(relativeMomentEClass, RELATIVE_MOMENT__OPERATION_MOMENT);
 
 		absoluteMomentEClass = createEClass(ABSOLUTE_MOMENT);
 		createEAttribute(absoluteMomentEClass, ABSOLUTE_MOMENT__TIME);
@@ -931,8 +975,8 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		createEAttribute(textAreaEClass, TEXT_AREA__WIDTH);
 		createEAttribute(textAreaEClass, TEXT_AREA__HEIGHT);
 		createEAttribute(textAreaEClass, TEXT_AREA__TEXT);
-		createEReference(textAreaEClass, TEXT_AREA__FONT);
 		createEReference(textAreaEClass, TEXT_AREA__ANIMATION);
+		createEReference(textAreaEClass, TEXT_AREA__FONT);
 
 		animationEClass = createEClass(ANIMATION);
 		createEAttribute(animationEClass, ANIMATION__DURATION);
@@ -946,8 +990,8 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		fadeOutEClass = createEClass(FADE_OUT);
 
 		fontEClass = createEClass(FONT);
-		createEAttribute(fontEClass, FONT__NAME);
 		createEAttribute(fontEClass, FONT__LENGTH);
+		createEAttribute(fontEClass, FONT__FONT_STYLE);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEAttribute(transitionEClass, TRANSITION__DURATION);
@@ -956,6 +1000,8 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		// Create enums
 		colorEEnum = createEEnum(COLOR);
 		momentEEnum = createEEnum(MOMENT);
+		fontStyleEEnum = createEEnum(FONT_STYLE);
+		operationMomentEEnum = createEEnum(OPERATION_MOMENT);
 	}
 
 	/**
@@ -1002,10 +1048,10 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(movieEClass, Movie.class, "Movie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMovie_Audioelement(), this.getAudioElement(), null, "audioelement", null, 1, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMovie_Audioelement(), this.getAudioElement(), null, "audioelement", null, 0, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMovie_Videoelement(), this.getVideoElement(), null, "videoelement", null, 1, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMovie_Title(), ecorePackage.getEString(), "title", null, 0, 1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMovie_Subtitle(), this.getSubtitle(), null, "subtitle", null, 1, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMovie_Subtitle(), this.getSubtitle(), null, "subtitle", null, 0, -1, Movie.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(videoElementEClass, VideoElement.class, "VideoElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1017,41 +1063,42 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEClass(subtitleEClass, Subtitle.class, "Subtitle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSubtitle_Textarea(), this.getTextArea(), null, "textarea", null, 1, 1, Subtitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSubtitle_Startingmoment(), this.getStartingMoment(), null, "startingmoment", null, 1, 1, Subtitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSubtitle_Name(), ecorePackage.getEString(), "name", null, 0, 1, Subtitle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(titleEClass, Title.class, "Title", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTitle_Textarea(), this.getTextArea(), null, "textarea", null, 1, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTitle_BackgroundColor(), this.getColor(), "backgroundColor", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTitle_Name(), ecorePackage.getEString(), "name", null, 0, 1, Title.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clipEClass, Clip.class, "Clip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClip_StartCut(), ecorePackage.getEString(), "startCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClip_EndCut(), ecorePackage.getEString(), "endCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClip_StartCut(), ecorePackage.getEDouble(), "startCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClip_EndCut(), ecorePackage.getEDouble(), "endCut", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClip_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClip_Video(), this.getVideo(), null, "video", null, 0, -1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClip_Video(), this.getVideo(), null, "video", null, 0, -1, Clip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVideo_Path(), ecorePackage.getEString(), "path", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Name(), ecorePackage.getEString(), "name", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVideo_Clip(), this.getClip(), null, "clip", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(audioEClass, Audio.class, "Audio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAudio_Path(), ecorePackage.getEString(), "path", null, 0, 1, Audio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAudio_Audioclip(), this.getAudioClip(), null, "audioclip", null, 1, 1, Audio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(audioClipEClass, AudioClip.class, "AudioClip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAudioClip_Volume(), ecorePackage.getEDouble(), "volume", null, 0, 1, AudioClip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAudioClip_StartCut(), ecorePackage.getEDouble(), "startCut", null, 0, 1, AudioClip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAudioClip_EndCut(), ecorePackage.getEDouble(), "endCut", null, 0, 1, AudioClip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAudioClip_Audio(), this.getAudio(), null, "audio", null, 0, -1, AudioClip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAudioClip_Audio(), this.getAudio(), null, "audio", null, 0, -1, AudioClip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(startingMomentEClass, StartingMoment.class, "StartingMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Relativemoment(), this.getRelativeMoment(), null, "relativemoment", null, 1, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relativeMomentEClass, RelativeMoment.class, "RelativeMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRelativeMoment_Moment(), this.getMoment(), "moment", null, 0, 1, RelativeMoment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelativeMoment_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, RelativeMoment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelativeMoment_Element(), this.getElement(), null, "element", null, 0, 1, RelativeMoment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelativeMoment_OperationMoment(), this.getOperationMoment(), "operationMoment", null, 0, 1, RelativeMoment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(absoluteMomentEClass, AbsoluteMoment.class, "AbsoluteMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbsoluteMoment_Time(), ecorePackage.getEDouble(), "time", null, 0, 1, AbsoluteMoment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1062,8 +1109,8 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEAttribute(getTextArea_Width(), ecorePackage.getEDouble(), "width", null, 0, 1, TextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextArea_Height(), ecorePackage.getEDouble(), "height", null, 0, 1, TextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextArea_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTextArea_Font(), this.getFont(), null, "font", null, 1, 1, TextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextArea_Animation(), this.getAnimation(), null, "animation", null, 0, -1, TextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextArea_Font(), this.getFont(), null, "font", null, 0, 1, TextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(animationEClass, Animation.class, "Animation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnimation_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Animation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1077,8 +1124,8 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEClass(fadeOutEClass, FadeOut.class, "FadeOut", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(fontEClass, Font.class, "Font", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFont_Name(), ecorePackage.getEString(), "name", null, 0, 1, Font.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFont_Length(), ecorePackage.getEString(), "length", null, 0, 1, Font.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFont_FontStyle(), this.getFontStyle(), "fontStyle", null, 0, 1, Font.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransition_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1091,6 +1138,13 @@ public class VideoMontagePackageImpl extends EPackageImpl implements VideoMontag
 		initEEnum(momentEEnum, Moment.class, "Moment");
 		addEEnumLiteral(momentEEnum, Moment.STARTING);
 		addEEnumLiteral(momentEEnum, Moment.ENDING);
+
+		initEEnum(fontStyleEEnum, FontStyle.class, "FontStyle");
+		addEEnumLiteral(fontStyleEEnum, FontStyle.COMIC_SANS_MS);
+
+		initEEnum(operationMomentEEnum, OperationMoment.class, "OperationMoment");
+		addEEnumLiteral(operationMomentEEnum, OperationMoment.ADDITION);
+		addEEnumLiteral(operationMomentEEnum, OperationMoment.SOUSTRACTION);
 
 		// Create resource
 		createResource(eNS_URI);

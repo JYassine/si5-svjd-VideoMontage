@@ -18,4 +18,6 @@ public interface SubtitleValidator {
 
 	boolean validateTextarea(TextArea value);
 	boolean validateStartingmoment(StartingMoment value);
+
+	boolean validateName(String value);
 }

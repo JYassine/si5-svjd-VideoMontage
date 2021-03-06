@@ -2,7 +2,9 @@
  */
 package VideoMontage.impl;
 
+import VideoMontage.Element;
 import VideoMontage.Moment;
+import VideoMontage.OperationMoment;
 import VideoMontage.RelativeMoment;
 import VideoMontage.VideoMontagePackage;
 
@@ -10,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -22,6 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link VideoMontage.impl.RelativeMomentImpl#getMoment <em>Moment</em>}</li>
  *   <li>{@link VideoMontage.impl.RelativeMomentImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link VideoMontage.impl.RelativeMomentImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link VideoMontage.impl.RelativeMomentImpl#getOperationMoment <em>Operation Moment</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +71,36 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 	 * @ordered
 	 */
 	protected double value = VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected Element element;
+
+	/**
+	 * The default value of the '{@link #getOperationMoment() <em>Operation Moment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperationMoment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final OperationMoment OPERATION_MOMENT_EDEFAULT = OperationMoment.ADDITION;
+
+	/**
+	 * The cached value of the '{@link #getOperationMoment() <em>Operation Moment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperationMoment()
+	 * @generated
+	 * @ordered
+	 */
+	protected OperationMoment operationMoment = OPERATION_MOMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +168,65 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Element getElement() {
+		if (element != null && element.eIsProxy()) {
+			InternalEObject oldElement = (InternalEObject)element;
+			element = (Element)eResolveProxy(oldElement);
+			if (element != oldElement) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VideoMontagePackage.RELATIVE_MOMENT__ELEMENT, oldElement, element));
+			}
+		}
+		return element;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetElement() {
+		return element;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElement(Element newElement) {
+		Element oldElement = element;
+		element = newElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.RELATIVE_MOMENT__ELEMENT, oldElement, element));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperationMoment getOperationMoment() {
+		return operationMoment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperationMoment(OperationMoment newOperationMoment) {
+		OperationMoment oldOperationMoment = operationMoment;
+		operationMoment = newOperationMoment == null ? OPERATION_MOMENT_EDEFAULT : newOperationMoment;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.RELATIVE_MOMENT__OPERATION_MOMENT, oldOperationMoment, operationMoment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +234,11 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 				return getMoment();
 			case VideoMontagePackage.RELATIVE_MOMENT__VALUE:
 				return getValue();
+			case VideoMontagePackage.RELATIVE_MOMENT__ELEMENT:
+				if (resolve) return getElement();
+				return basicGetElement();
+			case VideoMontagePackage.RELATIVE_MOMENT__OPERATION_MOMENT:
+				return getOperationMoment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +256,12 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 				return;
 			case VideoMontagePackage.RELATIVE_MOMENT__VALUE:
 				setValue((Double)newValue);
+				return;
+			case VideoMontagePackage.RELATIVE_MOMENT__ELEMENT:
+				setElement((Element)newValue);
+				return;
+			case VideoMontagePackage.RELATIVE_MOMENT__OPERATION_MOMENT:
+				setOperationMoment((OperationMoment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +281,12 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 			case VideoMontagePackage.RELATIVE_MOMENT__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case VideoMontagePackage.RELATIVE_MOMENT__ELEMENT:
+				setElement((Element)null);
+				return;
+			case VideoMontagePackage.RELATIVE_MOMENT__OPERATION_MOMENT:
+				setOperationMoment(OPERATION_MOMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +303,10 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 				return moment != MOMENT_EDEFAULT;
 			case VideoMontagePackage.RELATIVE_MOMENT__VALUE:
 				return value != VALUE_EDEFAULT;
+			case VideoMontagePackage.RELATIVE_MOMENT__ELEMENT:
+				return element != null;
+			case VideoMontagePackage.RELATIVE_MOMENT__OPERATION_MOMENT:
+				return operationMoment != OPERATION_MOMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +325,8 @@ public class RelativeMomentImpl extends StartingMomentImpl implements RelativeMo
 		result.append(moment);
 		result.append(", value: ");
 		result.append(value);
+		result.append(", operationMoment: ");
+		result.append(operationMoment);
 		result.append(')');
 		return result.toString();
 	}

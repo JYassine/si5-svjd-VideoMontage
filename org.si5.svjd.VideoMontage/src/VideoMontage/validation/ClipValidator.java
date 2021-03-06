@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.EList;
 public interface ClipValidator {
 	boolean validate();
 
+	boolean validateStartCut(double value);
+
+	boolean validateEndCut(double value);
+
 	boolean validateStartCut(String value);
 	boolean validateEndCut(String value);
 	boolean validateName(String value);

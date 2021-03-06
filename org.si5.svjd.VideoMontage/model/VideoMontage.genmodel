@@ -13,6 +13,13 @@
       <genEnumLiterals ecoreEnumLiteral="VideoMontage.ecore#//Moment/starting"/>
       <genEnumLiterals ecoreEnumLiteral="VideoMontage.ecore#//Moment/ending"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VideoMontage.ecore#//FontStyle">
+      <genEnumLiterals ecoreEnumLiteral="VideoMontage.ecore#//FontStyle/COMIC_SANS_MS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VideoMontage.ecore#//OperationMoment">
+      <genEnumLiterals ecoreEnumLiteral="VideoMontage.ecore#//OperationMoment/Addition"/>
+      <genEnumLiterals ecoreEnumLiteral="VideoMontage.ecore#//OperationMoment/Soustraction"/>
+    </genEnums>
     <genClasses ecoreClass="VideoMontage.ecore#//Movie">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Movie/audioelement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Movie/videoelement"/>
@@ -28,10 +35,12 @@
     <genClasses ecoreClass="VideoMontage.ecore#//Subtitle">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Subtitle/textarea"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Subtitle/startingmoment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Subtitle/name"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//Title">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Title/textarea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Title/backgroundColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Title/name"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//Clip">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Clip/startCut"/>
@@ -42,11 +51,9 @@
     <genClasses ecoreClass="VideoMontage.ecore#//Video">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Video/path"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Video/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Video/clip"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//Audio">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Audio/path"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Audio/audioclip"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//AudioClip">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//AudioClip/volume"/>
@@ -57,11 +64,12 @@
     <genClasses ecoreClass="VideoMontage.ecore#//StartingMoment"/>
     <genClasses ecoreClass="VideoMontage.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Element/duration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//Element/relativemoment"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//RelativeMoment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//RelativeMoment/moment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//RelativeMoment/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//RelativeMoment/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//RelativeMoment/operationMoment"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//AbsoluteMoment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//AbsoluteMoment/time"/>
@@ -72,8 +80,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//TextArea/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//TextArea/height"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//TextArea/text"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//TextArea/font"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//TextArea/animation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VideoMontage.ecore#//TextArea/font"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VideoMontage.ecore#//Animation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Animation/duration"/>
@@ -85,8 +93,8 @@
     <genClasses ecoreClass="VideoMontage.ecore#//FadeIn"/>
     <genClasses ecoreClass="VideoMontage.ecore#//FadeOut"/>
     <genClasses ecoreClass="VideoMontage.ecore#//Font">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Font/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Font/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Font/fontStyle"/>
     </genClasses>
     <genClasses ecoreClass="VideoMontage.ecore#//Transition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoMontage.ecore#//Transition/duration"/>

@@ -29,9 +29,7 @@ class VideoMontageFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Subtitle subtitle, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (relativeMoment : subtitle.relativemoment) {
-			relativeMoment.format
-		}
+		
 		subtitle.textarea.format
 		subtitle.startingmoment.format
 	}

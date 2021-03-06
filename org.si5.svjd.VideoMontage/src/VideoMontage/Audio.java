@@ -13,7 +13,6 @@ package VideoMontage;
  * </p>
  * <ul>
  *   <li>{@link VideoMontage.Audio#getPath <em>Path</em>}</li>
- *   <li>{@link VideoMontage.Audio#getAudioclip <em>Audioclip</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getAudio()
@@ -42,27 +41,5 @@ public interface Audio extends AudioElement {
 	 * @generated
 	 */
 	void setPath(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Audioclip</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Audioclip</em>' containment reference.
-	 * @see #setAudioclip(AudioClip)
-	 * @see VideoMontage.VideoMontagePackage#getAudio_Audioclip()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	AudioClip getAudioclip();
-
-	/**
-	 * Sets the value of the '{@link VideoMontage.Audio#getAudioclip <em>Audioclip</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Audioclip</em>' containment reference.
-	 * @see #getAudioclip()
-	 * @generated
-	 */
-	void setAudioclip(AudioClip value);
 
 } // Audio

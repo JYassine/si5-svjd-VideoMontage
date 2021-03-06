@@ -18,4 +18,6 @@ public interface TitleValidator {
 
 	boolean validateTextarea(TextArea value);
 	boolean validateBackgroundColor(Color value);
+
+	boolean validateName(String value);
 }

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link VideoMontage.impl.TitleImpl#getTextarea <em>Textarea</em>}</li>
  *   <li>{@link VideoMontage.impl.TitleImpl#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link VideoMontage.impl.TitleImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,26 @@ public class TitleImpl extends VideoElementImpl implements Title {
 	 * @ordered
 	 */
 	protected Color backgroundColor = BACKGROUND_COLOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,27 @@ public class TitleImpl extends VideoElementImpl implements Title {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.TITLE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -169,6 +211,8 @@ public class TitleImpl extends VideoElementImpl implements Title {
 				return getTextarea();
 			case VideoMontagePackage.TITLE__BACKGROUND_COLOR:
 				return getBackgroundColor();
+			case VideoMontagePackage.TITLE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,6 +230,9 @@ public class TitleImpl extends VideoElementImpl implements Title {
 				return;
 			case VideoMontagePackage.TITLE__BACKGROUND_COLOR:
 				setBackgroundColor((Color)newValue);
+				return;
+			case VideoMontagePackage.TITLE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -205,6 +252,9 @@ public class TitleImpl extends VideoElementImpl implements Title {
 			case VideoMontagePackage.TITLE__BACKGROUND_COLOR:
 				setBackgroundColor(BACKGROUND_COLOR_EDEFAULT);
 				return;
+			case VideoMontagePackage.TITLE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -221,6 +271,8 @@ public class TitleImpl extends VideoElementImpl implements Title {
 				return textarea != null;
 			case VideoMontagePackage.TITLE__BACKGROUND_COLOR:
 				return backgroundColor != BACKGROUND_COLOR_EDEFAULT;
+			case VideoMontagePackage.TITLE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -237,6 +289,8 @@ public class TitleImpl extends VideoElementImpl implements Title {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (backgroundColor: ");
 		result.append(backgroundColor);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

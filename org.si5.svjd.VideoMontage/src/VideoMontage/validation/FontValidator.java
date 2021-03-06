@@ -4,6 +4,8 @@
  */
 package VideoMontage.validation;
 
+import VideoMontage.FontStyle;
+
 
 /**
  * A sample validator interface for {@link VideoMontage.Font}.
@@ -16,4 +18,6 @@ public interface FontValidator {
 
 	boolean validateName(String value);
 	boolean validateLength(String value);
+
+	boolean validateFontStyle(FontStyle value);
 }

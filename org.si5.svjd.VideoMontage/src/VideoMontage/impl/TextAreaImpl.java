@@ -36,8 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link VideoMontage.impl.TextAreaImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link VideoMontage.impl.TextAreaImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link VideoMontage.impl.TextAreaImpl#getText <em>Text</em>}</li>
- *   <li>{@link VideoMontage.impl.TextAreaImpl#getFont <em>Font</em>}</li>
  *   <li>{@link VideoMontage.impl.TextAreaImpl#getAnimation <em>Animation</em>}</li>
+ *   <li>{@link VideoMontage.impl.TextAreaImpl#getFont <em>Font</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,16 +144,6 @@ public class TextAreaImpl extends MinimalEObjectImpl.Container implements TextAr
 	protected String text = TEXT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFont() <em>Font</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFont()
-	 * @generated
-	 * @ordered
-	 */
-	protected Font font;
-
-	/**
 	 * The cached value of the '{@link #getAnimation() <em>Animation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,6 +152,16 @@ public class TextAreaImpl extends MinimalEObjectImpl.Container implements TextAr
 	 * @ordered
 	 */
 	protected EList<Animation> animation;
+
+	/**
+	 * The cached value of the '{@link #getFont() <em>Font</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFont()
+	 * @generated
+	 * @ordered
+	 */
+	protected Font font;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -369,11 +369,11 @@ public class TextAreaImpl extends MinimalEObjectImpl.Container implements TextAr
 				return getHeight();
 			case VideoMontagePackage.TEXT_AREA__TEXT:
 				return getText();
+			case VideoMontagePackage.TEXT_AREA__ANIMATION:
+				return getAnimation();
 			case VideoMontagePackage.TEXT_AREA__FONT:
 				if (resolve) return getFont();
 				return basicGetFont();
-			case VideoMontagePackage.TEXT_AREA__ANIMATION:
-				return getAnimation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -402,12 +402,12 @@ public class TextAreaImpl extends MinimalEObjectImpl.Container implements TextAr
 			case VideoMontagePackage.TEXT_AREA__TEXT:
 				setText((String)newValue);
 				return;
-			case VideoMontagePackage.TEXT_AREA__FONT:
-				setFont((Font)newValue);
-				return;
 			case VideoMontagePackage.TEXT_AREA__ANIMATION:
 				getAnimation().clear();
 				getAnimation().addAll((Collection<? extends Animation>)newValue);
+				return;
+			case VideoMontagePackage.TEXT_AREA__FONT:
+				setFont((Font)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -436,11 +436,11 @@ public class TextAreaImpl extends MinimalEObjectImpl.Container implements TextAr
 			case VideoMontagePackage.TEXT_AREA__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
-			case VideoMontagePackage.TEXT_AREA__FONT:
-				setFont((Font)null);
-				return;
 			case VideoMontagePackage.TEXT_AREA__ANIMATION:
 				getAnimation().clear();
+				return;
+			case VideoMontagePackage.TEXT_AREA__FONT:
+				setFont((Font)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -464,10 +464,10 @@ public class TextAreaImpl extends MinimalEObjectImpl.Container implements TextAr
 				return height != HEIGHT_EDEFAULT;
 			case VideoMontagePackage.TEXT_AREA__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
-			case VideoMontagePackage.TEXT_AREA__FONT:
-				return font != null;
 			case VideoMontagePackage.TEXT_AREA__ANIMATION:
 				return animation != null && !animation.isEmpty();
+			case VideoMontagePackage.TEXT_AREA__FONT:
+				return font != null;
 		}
 		return super.eIsSet(featureID);
 	}

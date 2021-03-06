@@ -14,6 +14,7 @@ package VideoMontage;
  * <ul>
  *   <li>{@link VideoMontage.Subtitle#getTextarea <em>Textarea</em>}</li>
  *   <li>{@link VideoMontage.Subtitle#getStartingmoment <em>Startingmoment</em>}</li>
+ *   <li>{@link VideoMontage.Subtitle#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see VideoMontage.VideoMontagePackage#getSubtitle()
@@ -64,5 +65,27 @@ public interface Subtitle extends Element {
 	 * @generated
 	 */
 	void setStartingmoment(StartingMoment value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see VideoMontage.VideoMontagePackage#getSubtitle_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link VideoMontage.Subtitle#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Subtitle

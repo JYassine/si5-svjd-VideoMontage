@@ -91,13 +91,13 @@ public interface AudioClip extends AudioElement {
 	void setEndCut(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Audio</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Audio</b></em>' reference list.
 	 * The list contents are of type {@link VideoMontage.Audio}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Audio</em>' containment reference list.
+	 * @return the value of the '<em>Audio</em>' reference list.
 	 * @see VideoMontage.VideoMontagePackage#getAudioClip_Audio()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Audio> getAudio();

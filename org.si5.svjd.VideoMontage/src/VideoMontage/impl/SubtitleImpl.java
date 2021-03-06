@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link VideoMontage.impl.SubtitleImpl#getTextarea <em>Textarea</em>}</li>
  *   <li>{@link VideoMontage.impl.SubtitleImpl#getStartingmoment <em>Startingmoment</em>}</li>
+ *   <li>{@link VideoMontage.impl.SubtitleImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +50,26 @@ public class SubtitleImpl extends ElementImpl implements Subtitle {
 	 * @ordered
 	 */
 	protected StartingMoment startingmoment;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +181,27 @@ public class SubtitleImpl extends ElementImpl implements Subtitle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoMontagePackage.SUBTITLE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -183,6 +225,8 @@ public class SubtitleImpl extends ElementImpl implements Subtitle {
 				return getTextarea();
 			case VideoMontagePackage.SUBTITLE__STARTINGMOMENT:
 				return getStartingmoment();
+			case VideoMontagePackage.SUBTITLE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,6 +244,9 @@ public class SubtitleImpl extends ElementImpl implements Subtitle {
 				return;
 			case VideoMontagePackage.SUBTITLE__STARTINGMOMENT:
 				setStartingmoment((StartingMoment)newValue);
+				return;
+			case VideoMontagePackage.SUBTITLE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,6 +266,9 @@ public class SubtitleImpl extends ElementImpl implements Subtitle {
 			case VideoMontagePackage.SUBTITLE__STARTINGMOMENT:
 				setStartingmoment((StartingMoment)null);
 				return;
+			case VideoMontagePackage.SUBTITLE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,8 +285,26 @@ public class SubtitleImpl extends ElementImpl implements Subtitle {
 				return textarea != null;
 			case VideoMontagePackage.SUBTITLE__STARTINGMOMENT:
 				return startingmoment != null;
+			case VideoMontagePackage.SUBTITLE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SubtitleImpl

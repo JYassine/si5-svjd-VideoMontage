@@ -33,7 +33,7 @@ public interface Movie extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Audioelement</em>' containment reference list.
 	 * @see VideoMontage.VideoMontagePackage#getMovie_Audioelement()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<AudioElement> getAudioelement();
@@ -79,7 +79,7 @@ public interface Movie extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subtitle</em>' containment reference list.
 	 * @see VideoMontage.VideoMontagePackage#getMovie_Subtitle()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Subtitle> getSubtitle();
